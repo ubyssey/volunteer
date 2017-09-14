@@ -47,10 +47,10 @@ brew install libjpeg zlib
 
 ### Project settings
 
-Move the sample settings file into the project root:
+Copy the sample settings file into the project root:
 
 ```bash
-mv _settings/settings-local.py ubyssey/settings.py
+cp _settings/settings-local.py ubyssey/settings.py
 ```
 
 ### Database
@@ -104,7 +104,7 @@ gulp
 
 ### Media Files
 
-Download and unzip the [sample media folder](https://ubyssey.s3.amazonaws.com/dropbox/media.zip) to `ubyssey.ca/media/`. This will make it so the images attached to the sample articles are viewable.
+Download and unzip the [sample media folder](https://storage.googleapis.com/ubyssey/dropbox/media.zip) to `ubyssey.ca/media/`. This will make it so the images attached to the sample articles are viewable.
 
 ### Running the server
 
