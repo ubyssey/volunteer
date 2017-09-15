@@ -39,7 +39,7 @@
 
    1. All of our code is on GitHub
 
-   2. Projects and tasks are document in GitHub issues
+   2. Projects and tasks are documented in GitHub issues
 
       1. Sorted by difficulty \(beginner, intermediate, advanced\)
 
