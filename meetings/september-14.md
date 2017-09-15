@@ -7,8 +7,8 @@
    1. Weekly meetings will be **Thursdays at 5pm. **Meetings will be pretty casual -- we'll be going over ongoing projects, new tasks, and answering any questions people have.
    2. Office hours 
       1. Office hours are a chance for people to come into the office and get help/work on their projects. The office is always open, but dedicated office hours give us a regular time to work together once a week
-      2. Office hours will probably be 2-3 hours on Tuesday or Thursday
-      3. I'll post a poll on Slack \(once everybody joins\) to find a time that works best for everybody
+      2. Office hours will probably be for 2-3 hours on Tuesday or Thursday
+      3. I'll post a poll on Slack \(once everybody joins\) to find a time that works best
 3. Why write code for a newspaper?
    1. Print news is dying -- the web is the future!
    2. We have a chance to experiment with new ways of delivering the news
@@ -16,23 +16,24 @@
    4. Exposure
       1. ubyssey.ca gets 200-300k pageviews/per month
       2. You'll get to write code that is used by thousands of people every day
-4. Projects
-   1. ubyssey.ca \(Python, JavaScript, HTML/CSS\)
-      1. Our main website!
-      2. Work on new features, design updates, 
+4. Projects  
+   1. ubyssey.ca \(Python, JavaScript, HTML/CSS\)  
+      1. Our main website!  
+      2. Work on new features, design updates,
 
-         1. Video page
+   1. Video page
 
-         2. Live streaming
+   2. Live streaming
 
-         3. Comments
-   2. Dispatch \(Python/JavaScript/React/Redux\)
+   3. Comments  
+      2. Dispatch \(Python/JavaScript/React/Redux\)
 
       1. The custom-built publishing platform used by our editors to manage content on ubyssey.ca
 
-   3. Salary database
+   1. Salary database
 
-   4. Chatbot
+   2. Chatbot
+
 5. Contributing
 
    1. All of our code is on GitHub
