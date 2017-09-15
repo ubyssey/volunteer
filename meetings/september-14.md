@@ -5,7 +5,8 @@
 1. Introductions!
 2. Weekly Meetings
    1. Weekly meetings will be **Thursdays at 5pm. **Meetings will be pretty casual -- we'll be going over ongoing projects, new tasks, and answering any questions people have.
-   2. Office hours 
+   2. **Our next meeting will be a workshop **to help new volunteers get their development environments set up. So bring your laptops!
+   3. Office hours 
       1. Office hours are a chance for people to come into the office and get help/work on their projects. The office is always open, but dedicated office hours give us a regular time to work together once a week
       2. Office hours will probably be for 2-3 hours on Tuesday or Thursday
       3. I'll post a poll on Slack \(once everybody joins\) to find a time that works best
@@ -30,9 +31,9 @@
 
       1. The custom-built publishing platform used by our editors to manage content on ubyssey.ca
 
-   1. Salary database
+   4. Salary database
 
-   2. Chatbot
+   5. Chatbot
 
 5. Contributing
 
