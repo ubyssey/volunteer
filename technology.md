@@ -26,7 +26,7 @@ We use a separate repository to store the custom code that powers our website. T
 
 **Tech stack: **Python \(Dispatch/Django\), JavaScript \(React\), HTML/CSS
 
-**Repository: **[https://github.com/ubyssey/ubyssey.ca](https://github.com/ubyssey/ubyssey-dispatch-theme)
+**Repository: **[https://github.com/ubyssey/ubyssey.ca](https://github.com/ubyssey/ubyssey.ca)
 
 ### Salary Database {#salary-database}
 
