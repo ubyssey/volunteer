@@ -1,6 +1,6 @@
 ## Your first task
 
-Now that you have [ubyssey.ca](https://www.ubyssey.ca) set up on your computer, you're ready to start writing some code!
+Now that you have [ubyssey.ca](https://www.ubyssey.ca) set up on your computer, you're ready to start on your first task!
 
 Most of our tasks and projects are documented in GitHub issues on the [ubyssey.ca](https://github.com/ubyssey/ubyssey.ca) repo. This helps us keep track of who is working on what, keeps everything documented, and allows for more open communication between team members.
 
