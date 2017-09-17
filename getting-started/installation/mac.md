@@ -45,6 +45,12 @@ _Note: you might get an error saying that _`libjpeg`_ is required. You can insta
 brew install libjpeg zlib
 ```
 
+_Note: if `mySQL-python` fails to install, you might be missing some of Apple's Command Line Tools. Install [Xcode](https://itunes.apple.com/ca/app/xcode/id497799835?mt=12) from the Mac App Store, then:_
+
+```bash
+xcode-select --install
+```
+
 ### Project settings
 
 Copy the sample settings file into the project root:
