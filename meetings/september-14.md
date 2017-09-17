@@ -1,6 +1,7 @@
 # Ubyssey Weekly Web Meeting - September 14, 2017
 
 **Time:** Thursday, September 14, 5-6pm
+
 **Location:** The Ubyssey Office (room 2208 in the Nest)
 
 ### Minutes
