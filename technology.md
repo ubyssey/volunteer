@@ -18,7 +18,7 @@ _The Ubyssey_ is committed \(no pun intended\) to open source development, which
 
 **Repository: **[https://github.com/ubyssey/dispatch](https://github.com/ubyssey/dispatch)
 
-**Official Python package**: [https://pypi.python.org/pypi/dispatch](https://pypi.python.org/pypi/dispatch)
+**Official Python package**:[https://pypi.python.org/pypi/dispatch](https://pypi.python.org/pypi/dispatch)
 
 ### Ubyssey Dispatch theme {#ubyssey-dispatch-theme}
 

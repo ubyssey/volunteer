@@ -76,14 +76,16 @@ Next, populate the database with sample data:
 
 ```bash
 curl https://storage.googleapis.com/ubyssey/dropbox/ubyssey.sql | mysql -u root ubyssey
+```
 
-# If you're seeing "curl: (23) Failed writing body"
-# try
-# curl https://storage.googleapis.com/ubyssey/dropbox/ubyssey.sql | tac | tac | mysql -u root ubyssey
+*If you're seeing "curl: (23) Failed writing body" try:*
+```bash
+curl https://storage.googleapis.com/ubyssey/dropbox/ubyssey.sql | tac | tac | mysql -u root ubyssey
+```
 
-# If you're seeing "ERROR 1045 (28000): Access denied for user 'root'@'localhost'"
-# try
-# curl https://storage.googleapis.com/ubyssey/dropbox/ubyssey.sql | mysql -u root ubyssey -p
+*If you're seeing "ERROR 1045 (28000): Access denied for user 'root'@'localhost'", try:*
+```bash
+curl https://storage.googleapis.com/ubyssey/dropbox/ubyssey.sql | mysql -u root ubyssey -p
 ```
 
 ### Static files
@@ -112,12 +114,9 @@ Now start the server!
 
 ```bash
 python manage.py runserver
-
-# If you're seeing "django.core.exceptions.ImproperlyConfigured: Error loading MySQLdb module: No module named MySQLdb"
-# run
-# pip install MySQL-python
-# and try again
 ```
+
+*If you're seeing "django.core.exceptions.ImproperlyConfigured: Error loading MySQLdb module: No module named MySQLdb", run `pip install MySQL-python` and try again.*
 
 ### Admin Panel
 
