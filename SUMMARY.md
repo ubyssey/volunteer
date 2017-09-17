@@ -8,4 +8,5 @@
     * [Windows Instructions](getting-started/installation/windows.md)
 * [Meetings](meetings.md)
   * [September 14](meetings/september-14.md)
+* [Compensation](compensation.md)
 
