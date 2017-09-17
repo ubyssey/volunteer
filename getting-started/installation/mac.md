@@ -66,10 +66,11 @@ Now run the server and create a fresh database:
 ```bash
 mysql.server start
 echo "CREATE DATABASE ubyssey" | mysql -u root
+```
 
-# If you're seeing "ERROR 1045 (28000): Access denied for user 'root'@'localhost'"
-# try
-# echo "CREATE DATABASE ubyssey" | mysql -u root -p
+*If you're seeing "ERROR 1045 (28000): Access denied for user 'root'@'localhost'", try:*
+```bash
+echo "CREATE DATABASE ubyssey" | mysql -u root -p
 ```
 
 Next, populate the database with sample data:
