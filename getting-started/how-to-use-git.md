@@ -32,4 +32,24 @@ As a convention, we preface all branch names with their corresponding issue numb
 
 ![](/assets/new-branch-2.png)
 
+### 3. Your first commit
 
+Git watches your files and keeps track of all the changes you make to your code. The repo page in GitHub Desktop displays the current "status" of your branch, which includes a line-by-line change log of all your files. 
+
+To demonstrate how this works, open `README.txt` and add your name to the top of the file. You should see something like this after you save the file:
+
+![](/assets/first-commit-1.png)
+
+When you are ready to save some changes, you have to create what's called a "commit." Every commit must contain a message that describes the changes being saved.
+
+![](/assets/first-commit-2.png)
+
+After you click "Commit to ...", the changes will disappear from the screen. This means that your changes have been saved and the working directory is "clean."
+
+### 4. Publishing your branch
+
+Now you're ready to publish the changes in your branch. Clicking the "Publish branch" button will synchronize your changes with GitHub's servers. It's a good idea to commit early and often in order to prevent losing your changes.
+
+![](/assets/publish-branch.png)
+
+Now if you go to https://github.com/ubyssey/ubyssey.ca, you should be able to see that your branch has been published!
