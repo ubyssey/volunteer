@@ -116,7 +116,7 @@ npm install
 
 # Install and run gulp
 npm install -g gulp
-gulp
+gulp build-dev
 ```
 
 ### Media files
