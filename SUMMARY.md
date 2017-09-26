@@ -8,7 +8,7 @@
     * [Windows Instructions](getting-started/installation/windows.md)
   * [Your first task](getting-started/your-first-task.md)
   * [How to use Git](getting-started/how-to-use-git.md)
-  * [Backend](getting-started/backend.md)
+  * [Backend Development](getting-started/backend.md)
 * [Resources](resources.md)
 * [Meetings](meetings.md)
   * [September 14](meetings/september-14.md)
