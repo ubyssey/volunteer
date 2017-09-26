@@ -11,6 +11,46 @@ You should also install pip if you haven't already:
 ```bash
 sudo easy_install pip
 ```
+### Database
+
+Dispatch requires a MySQL database to store information. Install mysql with Homebrew.
+
+```bash
+brew install mysql
+```
+
+Now run the server and create a fresh database:
+
+```bash
+mysql.server start
+echo "CREATE DATABASE ubyssey" | mysql -u root
+```
+
+_If you're seeing "ERROR 1045 \(28000\): Access denied for user 'root'@'localhost'", try:_
+
+```bash
+echo "CREATE DATABASE ubyssey" | mysql -u root -p
+```
+
+Next, populate the database with sample data:
+
+```bash
+curl https://storage.googleapis.com/ubyssey/dropbox/ubyssey.sql | mysql -u root ubyssey
+```
+
+_If you're seeing "curl: \(23\) Failed writing body" try:_
+
+```bash
+curl https://storage.googleapis.com/ubyssey/dropbox/ubyssey.sql | tac | tac | mysql -u root ubyssey
+```
+
+_If you're seeing "ERROR 1045 \(28000\): Access denied for user 'root'@'localhost'", try:_
+
+```bash
+curl https://storage.googleapis.com/ubyssey/dropbox/ubyssey.sql | mysql -u root ubyssey -p
+```
+
+### Getting the code
 
 We recommend working inside a virtualenv, but it's not required.
 
@@ -45,7 +85,7 @@ _Note: you might get an error saying that _`libjpeg`_ is required. You can insta
 brew install libjpeg zlib
 ```
 
-_Note: if `mySQL-python` fails to install, you might be missing some of Apple's Command Line Tools. Install [Xcode](https://itunes.apple.com/ca/app/xcode/id497799835?mt=12) from the Mac App Store, then:_
+_Note: if _`mySQL-python`_ fails to install, you might be missing some of Apple's Command Line Tools. Install _[_Xcode_](https://itunes.apple.com/ca/app/xcode/id497799835?mt=12)_ from the Mac App Store, then:_
 
 ```bash
 xcode-select --install
@@ -57,42 +97,6 @@ Copy the sample settings file into the project root:
 
 ```bash
 cp _settings/settings-local.py ubyssey/settings.py
-```
-
-### Database
-
-Dispatch requires a MySQL database to store information. Install mysql with Homebrew.
-
-```bash
-brew install mysql56
-```
-
-Now run the server and create a fresh database:
-
-```bash
-mysql.server start
-echo "CREATE DATABASE ubyssey" | mysql -u root
-```
-
-*If you're seeing "ERROR 1045 (28000): Access denied for user 'root'@'localhost'", try:*
-```bash
-echo "CREATE DATABASE ubyssey" | mysql -u root -p
-```
-
-Next, populate the database with sample data:
-
-```bash
-curl https://storage.googleapis.com/ubyssey/dropbox/ubyssey.sql | mysql -u root ubyssey
-```
-
-*If you're seeing "curl: (23) Failed writing body" try:*
-```bash
-curl https://storage.googleapis.com/ubyssey/dropbox/ubyssey.sql | tac | tac | mysql -u root ubyssey
-```
-
-*If you're seeing "ERROR 1045 (28000): Access denied for user 'root'@'localhost'", try:*
-```bash
-curl https://storage.googleapis.com/ubyssey/dropbox/ubyssey.sql | mysql -u root ubyssey -p
 ```
 
 ### Static files
@@ -108,7 +112,7 @@ Install a global verison of gulp \(if you don't have it already\) and build the 
 
 ```bash
 npm install -g gulp
-gulp
+gulp build-dev
 ```
 
 ### Media Files
@@ -123,7 +127,7 @@ Now start the server!
 python manage.py runserver
 ```
 
-*If you're seeing "django.core.exceptions.ImproperlyConfigured: Error loading MySQLdb module: No module named MySQLdb", run `pip install MySQL-python` and try again.*
+_If you're seeing "django.core.exceptions.ImproperlyConfigured: Error loading MySQLdb module: No module named MySQLdb", run _`pip install MySQL-python`_ and try again._
 
 ### Admin Panel
 
