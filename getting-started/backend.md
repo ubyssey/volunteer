@@ -72,8 +72,6 @@ def home(self, request):
             max_days=7
         )
 
-        elections = ArticleHelper.get_topic('AMS Elections').order_by('-published_at')
-
         frontpage_ids = [int(a.id) for a in frontpage[:2]]
 
         sections = ArticleHelper.get_frontpage_sections(exclude=frontpage_ids)
@@ -116,23 +114,85 @@ The above code might look a little daunting if you're new to Python, but don't w
 
 ### You're almost ready to start coding!
 
-Before we go any further, you should take a minute to setup a code editor if you haven't already. We recommend using something like [Atom](https://atom.io/) or [VS Code](https://code.visualstudio.com/), but you can use vim or emacs if you're into that. Once you have an editor installed, load the `ubyssey.ca` folder so that all the files are in one place.
+Before we go any further, you should take a minute to set up a code editor if you haven't already. We recommend using something like [Atom](https://atom.io/) or [VS Code](https://code.visualstudio.com/), but you can use vim or emacs if you're into that. Once you have an editor installed, load the `ubyssey.ca` folder so that all the files are in one place.
+
+*Hint: In Atom, you can click `File > Add Project Folder` and select the `ubyssey.ca` folder.*
 
 ### 2. Loading and preparing data
 
 The `home` method is responsible for sending an HTML response back to the user, but before it can do that, it has to fetch and prepare all the data it needs. Most of the calls to `ArticleHelper` fetch data from our database, which is then added to the `context` structure at the end of the method.
 
-To keep things simple for this tutorial, we won't be fetching data from the database, but we will be adding data to the `context` structure. The data that we need to generate, in this case, is a random number between 1 and 10. Here's how you'd do that in Python:
+To keep things simple for this tutorial, we won't be fetching data from the database, but we will be adding data to the `context` structure. 
 
+The `context` data structure is a primitive type called a `dictionary`, which is just Python's version of a hash table. It simply creates a map of keys to values:
+
+```py
+
+my_dict = {
+  'name': 'John',
+  'age': 22,
+}
+
+print 'My name is ' + my_dict['name']
+# > My name is John
+
+print 'My age is ' + str(my_dict['age'])
+# > My age is 22
 ```
+
+The data that we need to generate, in this case, is a random number between 1 and 10. Here's how you'd do that in Python:
+
+```py
 import random
 
 rand_num = random.randint(1, 10)
 ```
 
-#### **Your task: extend the `context` data structure to include a random number from 1 to 10.**
+### Now it's your turn!
 
-#### 
+**Extend the `context` data structure to include a random number from 1 to 10.**
+
+### 3. Putting data into a template
+
+The final line in the `home` method makes a call to the `render` method, which (you guessed it!) renders the final output of the homepage. You'll notice that it takes three arguments:
+
+* `request` - the Django request object, stores information about the incoming request
+* `homepage/base.html` - the template file to use
+* `context` - the context to pass to the template
+
+In this case, the `render` method loads the `homepage/base.html` template and returns the result of rendering that template with the given context.
+
+This simple example shows how a Django template reads data from the context:
+
+```py
+
+context = {
+  'name': 'Sarah',
+}
+
+return render(request, 'my-template.html', context)
+```
+
+In a Django template, all of the keys defined in the context dictionary become available as named variables. To print one of these variables, simple wrap its name in double curly braces:
+
+```html
+<strong>Hi, my name is {{ name }}!</strong>
+```
+
+This will produce:
+
+**Hi, my name is John!**
+
+### Your next step
+
+Edit `templates/homepage/base.html` so that it prints the following at the top of the page:
+
+**I completed the getting started tutorial! `YOUR RANDOM NUMBER HERE`**
+
+*Hint: add your code directly after [this line]( https://github.com/ubyssey/ubyssey.ca/blob/develop/ubyssey/templates/homepage/base.html#L9).*
+
+Now if you reload the homepage, you should see your text!
+
 
 
 
