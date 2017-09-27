@@ -181,7 +181,7 @@ In a Django template, all of the keys defined in the context dictionary become a
 
 This will produce:
 
-**Hi, my name is John!**
+**Hi, my name is Sarah!**
 
 ### Your next step
 
