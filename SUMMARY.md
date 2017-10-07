@@ -12,5 +12,6 @@
 * [Resources](resources.md)
 * [Meetings](meetings.md)
   * [September 14](meetings/september-14.md)
+  * [October 3](meetings/october-3.md)
 * [Compensation](compensation.md)
 
