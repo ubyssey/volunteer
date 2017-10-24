@@ -121,6 +121,8 @@ Download and unzip the [sample media folder](https://storage.googleapis.com/ubys
 
 ### Running the server
 
+Go back to the root of the project ("ubyssey.ca" directory)
+
 Now start the server!
 
 ```bash
