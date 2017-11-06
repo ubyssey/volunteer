@@ -14,4 +14,5 @@
   * [September 14](meetings/september-14.md)
   * [October 3](meetings/october-3.md)
 * [Compensation](compensation.md)
+* [Running the server](running-the-server.md)
 
