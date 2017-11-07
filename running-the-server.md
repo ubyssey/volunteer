@@ -30,12 +30,12 @@ cd ubyssey.ca
 
 Run the server!
 ```bash
-python setup.py runserver
+python manage.py runserver
 ```
 
 **Building the static files**
 
-Now, select `Shell > New Tab` from the Terminal menu bar. This will open a new shell in the `ubyssey.ca` folder. 
+Now, select `Shell > New Tab` from the Terminal menu bar. This will open a new shell in the `ubyssey.ca` folder.
 
 From this folder, navigate to `ubyssey/static`
 
