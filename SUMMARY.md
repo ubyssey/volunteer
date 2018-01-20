@@ -6,6 +6,7 @@
   * [Installation](getting-started/installation.md)
     * [Mac Instructions](getting-started/installation/mac.md)
     * [Windows Instructions](getting-started/installation/windows.md)
+    * [Dispatch Setup](getting-started/installation/dispatch-setup.md)
   * [Your first task](getting-started/your-first-task.md)
   * [How to use Git](getting-started/how-to-use-git.md)
   * [Backend Development](getting-started/backend.md)
