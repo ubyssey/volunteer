@@ -4,6 +4,7 @@
 * [Our Technology](technology.md)
 * [Getting Started](getting-started.md)
   * [Installation](getting-started/installation.md)
+    * [Docker Instructions](getting-started/installation/docker.md)
     * [Mac Instructions](getting-started/installation/mac.md)
     * [Windows Instructions](getting-started/installation/windows.md)
     * [Dispatch Setup](getting-started/installation/dispatch-setup.md)
