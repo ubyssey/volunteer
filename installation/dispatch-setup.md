@@ -49,4 +49,16 @@ yarn start
 ```
 
 
+### Testing
+
+```bash
+
+# Run tests
+# make sure your current working directory is ubyssey-dev/dispatch
+dispatch-admin test
+
+# Generate coverage report
+dispatch-admin coverage
+```
+
 
