@@ -22,9 +22,9 @@ After you find a task that interests you, feel free to assign it to yourself. Th
 
 ### I'm ready!
 
-For this tutorial, we'll be walking you through the process of claiming an issue, writing some code, and then submitting that issue for approval. 
+For this tutorial, we'll be walking you through the process of claiming an issue, writing some code, and then submitting that issue for approval.
 
-To start, find the **Getting Started Tutorial** issue on the issues page. Normally you would assign it to yourself, but since you won't be the only one completing this tutorial, simply leave a comment that says something like "I'd like to work on this."
+To start, find the [**Getting Started Tutorial**](https://github.com/ubyssey/ubyssey.ca/issues/332) issue on the issues page. Normally you would assign it to yourself, but since you won't be the only one completing this tutorial, simply leave a comment that says something like "I'd like to work on this."
 
 ![](/assets/issue-comment.png)
 

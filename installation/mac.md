@@ -1,5 +1,7 @@
 ## Setup Instructions for Mac OS
 
+*Note: Current recommended setup is to follow [Docker Instructions](installation/docker.md)*
+
 First, make sure you have Homebrew installed:
 
 ```bash

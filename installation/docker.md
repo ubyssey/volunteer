@@ -1,8 +1,8 @@
 ## Setup Instruction for Docker
 
-*Note: the following setup was done on an Ubunutu Linux.*
+*Note: the following setup was done on an Ubunutu Linux, but should work on most systems*
 
-#### 0: Install Docker
+### Install Docker
 
 Install `docker 18.06.x` Follow the instructions [from official Docker doc](https://docs.docker.com/). This will require you to create a docker account if you do not already have one.
 
@@ -56,16 +56,21 @@ To see currently running docker containers, run the following command in a diffe
 ```bash
 docker ps
 ```
-## The following should be done in a separate terminal
 
-#### 1: Setup the mysql container with a database
+**NOTE: Keep this terminal window with docker running open for following commands**
+
+### Setup the mysql container with a database
+
+**NOTE: Following commands should be done in a separate terminal window**
 
 Connect to the ubyssey_db docker container.
+
 ```bash
 docker exec -t -i ubyssey_db bash
 ```
 
 Setup the local database in ubyssey_db docker container.
+
 ```bash
 # password is ubyssey
 mysql -u root -p
@@ -74,6 +79,7 @@ quit;
 ```
 
 Populate the database.
+
 ```bash
 apt update
 apt-get install curl
@@ -84,7 +90,7 @@ curl https://storage.googleapis.com/ubyssey/dropbox/ubyssey.sql | mysql -u root 
 
 Your db container is up and running! Type `exit` to exit from this container
 
-#### 2: Perform django migrations on the docker container
+### Perform django migrations on the docker container
 
 Connect to the `ubyssey-dev` docker container
 
@@ -103,16 +109,16 @@ python manage.py migrate
 Once the database has been populated, and migrations have been applied,
 you should be able to proceed to `localhost:8000` and `localhost:8000/admin` to view ubyssey.ca and dispatch running from your ubyssey-dev docker container.
 
-##### Dispatch
+#### Dispatch
 
 You can see Dispatch by going to `http://localhost:8000/admin/`
 
 Username is `volunteer@ubyssey.ca`, password is `volunteer`
 
 
-#### Extra docker info
+### Extra docker info
 
-##### When in doubt, you may need to clear docker's cache and remove all docker images.
+#### When in doubt, you may need to clear docker's cache and remove all docker images.
 
 ```bash
 # will remove docker cache and clear all images

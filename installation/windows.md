@@ -1,5 +1,7 @@
 ## Setup Instructions for Windows
 
+*Note: Current recommended setup is to follow [Docker Instructions](installation/docker.md)*
+
 ### Install Python
 
 Install Python if don't have it on your system:
@@ -204,7 +206,7 @@ You can also try the following command under ubyssey\static\
 
 **Q: I encountered these warning messages:**
 
-```bash 
+```bash
 npm WARN deprecated minimatch@2.0.10: Please update to minimatch 3.0.2 or higher to avoid a RegExp DoS issue
 npm WARN deprecated minimatch@0.2.14: Please update to minimatch 3.0.2 or higher to avoid a RegExp DoS issue
 npm WARN deprecated graceful-fs@1.2.3: graceful-fs v3.0.0 and before will fail on node releases >= v7.0. Please update to graceful-fs@^4.0.0 as soon as possible. Use 'npm ls graceful-fs' to find it in the tree.

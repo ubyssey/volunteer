@@ -6,9 +6,13 @@ We use a variety of languages, tools and frameworks at _The Ubyssey_. We try our
 
 _The Ubyssey_ is committed \(no pun intended\) to open source development, which means all of our code is available on GitHub and we always welcome pull requests. We made the decision to open our codebase to foster a stronger development community at our paper, and also to promote collaboration with other student papers in Canada and abroad.
 
-[**Check out our repositories on GitHub**](https://github.com/ubyssey)
+#### Slack
+
+We do all of our communication via [Slack](https://slack.com/)! To get the invite to `#web-volunteers` channel send an email with your full name to `atsushi@ubyssey.ca`!
 
 # Our Projects {#our-projects}
+
+[**Check out our repositories on GitHub**](https://github.com/ubyssey)
 
 ### Dispatch {#dispatch}
 

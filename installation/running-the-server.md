@@ -1,6 +1,17 @@
 ## Running the server
 
-This is a quick guide for getting your development server running **after** you've completed the [setup process](/getting-started/installation.md).
+This is a quick guide for getting your development server running **after** you've completed the [setup process](/installation/README.md).
+
+### Docker
+
+Run docker-compose
+
+```bash
+# Move to your Ubyssey project dir
+cd ~/ubyssey-dev
+# Start docker containers
+docker-compose up
+```
 
 ### macOS
 
