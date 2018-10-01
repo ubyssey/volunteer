@@ -4,9 +4,9 @@
 
 #### 0: Install Docker
 
-Install `docker 18.06.x` and `docker-compose 1.10.x`.
+Install `docker 18.06.x` Follow the instructions [from official Docker doc](https://docs.docker.com/). This will require you to create a docker account if you do not already have one.
 
-Follow the instructions [here](https://docs.docker.com/). This will require you to create a docker account if you do not already have one.
+Afterward install `docker-compose 1.10.x` from [here](https://docs.docker.com/compose/install/) (If not already installed with docker)
 
 *If setting up on linux, all docker and docker-compose commands should be preceeded with `sudo`.* To enable docker without `sudo`, follow this [official post-installation doc](https://docs.docker.com/install/linux/linux-postinstall/)
 
@@ -62,7 +62,7 @@ docker ps
 
 Connect to the ubyssey_db docker container.
 ```bash
-sudo docker exec -t -i ubyssey_db bash
+docker exec -t -i ubyssey_db bash
 ```
 
 Setup the local database in ubyssey_db docker container.
@@ -89,7 +89,7 @@ Your db container is up and running! Type `exit` to exit from this container
 Connect to the `ubyssey-dev` docker container
 
 ```bash
-sudo docker exec -t -i ubyssey-dev bash
+docker exec -t -i ubyssey-dev bash
 ```
 
 Run migrations on the mysql database
@@ -123,7 +123,7 @@ then you can rebuild your docker images using
 
 ``` bash
 # from ubyssey-dev dir
-sudo docker-compose up
+docker-compose up
 ```
 
 
