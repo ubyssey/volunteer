@@ -1,5 +1,9 @@
 # Installation
 
+As a first step, create a GitHub account and clone our repositores:
+
+* [**Forking GitHub Repository**](/installation/forking-the-repo.md)
+
 Before you can start writing code, you'll have to setup your local development environment. To do so, follow the instructions below:
 
 * [**Docker Instructions**](/installation/docker.md) (**Recommened**)
