@@ -36,7 +36,8 @@ Our last social rule bans subtle racism, sexism, homophobia, transphobia, and ot
 
 Subtle -isms are small things that make others feel unwelcome, things that we all sometimes do by mistake. For example, saying "It's so easy my grandmother could do it" is a subtle -ism. Like the other three social rules, this one is often accidentally broken. Like the other three, it's not a big deal to mess up – you just apologize and move on.
 
-
-
 Thank you for helping make this a welcoming, friendly community for all.
+
+## Footnote
+We borrowed parts of [DigitalOcean's Engineering Code of Conduct](https://github.com/digitalocean/engineering-code-of-conduct) and [Recurse Center's Code of Conduct](https://www.recurse.com/code-of-conduct).
 
