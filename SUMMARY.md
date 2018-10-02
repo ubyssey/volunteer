@@ -15,4 +15,5 @@
 * [Resources](resources.md)
 * [Office Hour](office-hour.md)
 * [Compensation](compensation.md)
+* [Code of Conduct](code-of-conduct.md)
 
