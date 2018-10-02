@@ -40,10 +40,11 @@ cd ubyssey-dev
 
 ### Get the code
 
-Clone the `ubyssey.ca` repository:
+First, fork ubyssey.ca repository by following [this tutorial](/installation/forking-the-repo.md). Afterward clone the `ubyssey.ca` repository:
 
 ```bash
-git clone https://github.com/ubyssey/ubyssey.ca
+# Change the url to your cloned repo
+git clone https://github.com/<YOUR-USERNAME>/ubyssey.ca
 cd ubyssey.ca
 ```
 

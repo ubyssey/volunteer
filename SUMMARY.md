@@ -6,6 +6,7 @@
   * [Docker Instructions](installation/docker.md)
   * [Mac Instructions](installation/mac.md)
   * [Windows Instructions](installation/windows.md)
+  * [Forking the repository](installation/forking-the-repo.md)
   * [Dispatch Setup](installation/dispatch-setup.md)
   * [Running the server](installation/running-the-server.md)
 * [Getting Started](getting-started/README.md)

@@ -12,7 +12,7 @@ Afterward install `docker-compose 1.10.x` from [here](https://docs.docker.com/co
 
 Before we proceed, we recommend creating a dedicated directory (folder) for Ubyssey related projects. In this tutorial we will refer to this dir as `ubyssey-dev` (you can use any other name that makes sense to you). Let's create the directory at the location you want the code to live in:
 
-We recommend working inside a virtualenv, but it's not required.
+Before we proceeed, we recommend working inside a virtualenv, but it's not required.
 
 ```bash
 # Install virtualenv if you don't have it
@@ -27,12 +27,15 @@ cd ubyssey-dev
 source bin/activate
 ```
 
-We will now download `ubyssey.ca` and `dispatch` projects. Run these commands inside `ubyssey-dev` dir (note: to hcheck which dir you are in, try `pwd` command):
+## Fork repositories
+
+We will now download `ubyssey.ca` and `dispatch` projects. Follow [our forking instructions](/installation/forking-the-repo.md) first to copy the project under your GitHub username. Run these commands inside `ubyssey-dev` dir (note: to hcheck which dir you are in, try `pwd` command):
 
 ```bash
 # Inside ubyssey-dev dir
-git clone https://github.com/ubyssey/ubyssey.ca.git
-git clone https://github.com/ubyssey/dispatch.git
+# Change urls to your cloned repo
+git clone https://github.com/<YOUR-USERNAME>/ubyssey.ca.git
+git clone https://github.com/<YOUR-USERNAME>/dispatch.git
 ```
 
 We have stored the config files for Docker in `local-dev`dir inside `ubyssey.ca` project. To make enable Docker we first move the files to appropriate location:
