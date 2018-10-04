@@ -9,6 +9,7 @@ Before you use these links, sign up for a Codecademy account: https://www.codeca
 - Learn CLI - https://www.codecademy.com/learn/learn-the-command-line
 - Ryan's Tutorial: The command line - https://ryanstutorials.net/linuxtutorial/commandline.php
 - linuxcommands.com (http://linuxcommand.org/lc3_learning_the_shell.php)
+- Better `man` - https://tldr.sh/
 
 ### Git
 
