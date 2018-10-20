@@ -27,6 +27,12 @@ cd ubyssey-dev
 source bin/activate
 ```
 
+#### Note for Mac
+
+Docker have [a known CPU overusage issue](https://github.com/docker/for-mac/issues/1759) for macOS that may make your fan go wild.
+
+Jason, one of our volunteers, found figured out [a trick](https://github.com/docker/for-mac/issues/1759) to fix the issue!
+
 ## Fork repositories
 
 We will now download `ubyssey.ca` and `dispatch` projects. Follow [our forking instructions](/installation/forking-the-repo.md) first to copy the project under your GitHub username. Run these commands inside `ubyssey-dev` dir (note: to hcheck which dir you are in, try `pwd` command):
