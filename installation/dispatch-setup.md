@@ -52,6 +52,8 @@ yarn start
 ### Testing
 
 ```bash
+# Link the tests to local files instead of package files
+python setup.py develop
 
 # Run tests
 # make sure your current working directory is ubyssey-dev/dispatch
