@@ -14,6 +14,7 @@
   * [How to use Git](getting-started/how-to-use-git.md)
   * [Intro to Backend Dev](getting-started/backend.md)
 * [Resources](resources.md)
+* [FAQ](faq/README.md)
 * [Office Hour](office-hour.md)
 * [Compensation](compensation.md)
 * [Code of Conduct](code-of-conduct.md)
