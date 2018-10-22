@@ -1,6 +1,9 @@
 # FAQ
 
-### Django Migrations w/ Docker
+Table of contents:
+- [Django Migrations w/ Docker](#django-migrations-with-docker)
+
+### Django Migrations with Docker
 
 Normally you would run `python manage.py migrate` to run mingrations in typical Django migrations in your local machine. However, because our applications live inside [Docker containers](https://www.docker.com/resources/what-container), we need to somehow apply changes to the container image instead of your local machine. Use these commands to do so:
 
