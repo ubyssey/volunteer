@@ -74,7 +74,9 @@ cp -r ./ubyssey.ca/local-dev/. .
 
 We now need to set the local settings for django.
 
-```cp -r ubyssey.ca/_settings/settings-local.py ubyssey.ca/ubyssey/settings.py```
+```bash
+cp -r ubyssey.ca/_settings/settings-local.py ubyssey.ca/ubyssey/settings.py
+```
 
 Build and run the docker containers. This command can take several minutes, so be patient.
 
