@@ -138,7 +138,6 @@ Run migrations on the mysql database
 
 ```bash
 cd ubyssey.ca
-cp _settings/settings-local.py ubyssey/settings.py
 python manage.py migrate
 ```
 
