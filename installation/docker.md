@@ -1,6 +1,14 @@
 ## Setup Instruction for Docker
 
-*Note: the following setup was done on an Ubunutu Linux, but should work on most systems*
+*Note: the following setup was done on an Ubunutu Linux, but should work on windows systems as well*
+
+**Note for Windows: From what we've seen, Windows Docker Toolbox seem to have a poor performance. We recommend Windows users to set up the environment natively as described in [Windows Setup tutorial](/installation/windows.md)**
+
+### Install Python
+
+On Mac and Linux, python & pip comes with the system.  
+For windows, you need to download them manually.  
+[Download Python 2.7](https://www.python.org/downloads/release/python-2715/) then [install pip](https://pip.pypa.io/en/stable/installing/) by following the links
 
 ### Install Docker
 
@@ -10,9 +18,15 @@ Afterward install `docker-compose 1.10.x` from [here](https://docs.docker.com/co
 
 *If setting up on linux, all docker and docker-compose commands should be preceeded with `sudo`.* To enable docker without `sudo`, follow this [official post-installation doc](https://docs.docker.com/install/linux/linux-postinstall/)
 
+## Set up development folder
+
 Before we proceed, we recommend creating a dedicated directory (folder) for Ubyssey related projects. In this tutorial we will refer to this dir as `ubyssey-dev` (you can use any other name that makes sense to you). Let's create the directory at the location you want the code to live in:
 
-Before we proceeed, we recommend working inside a virtualenv, but it's not required.
+*Note: copy and paste **all** commands in terminal:*
+
+(How to find the terminal:  
+Win: Click on Start btn > Type "cmd" > Click on "Command Prompt"  
+Mac: Open Spotlight search or Applications folder > Type "terminal")
 
 ```bash
 # Install virtualenv if you don't have it
@@ -27,11 +41,15 @@ cd ubyssey-dev
 source bin/activate
 ```
 
+We recommend working inside a virtualenv, but it's not required.
+
 #### Note for Mac
 
 Docker have [a known CPU overusage issue](https://github.com/docker/for-mac/issues/1759) for macOS that may make your fan go wild.
 
 Jason, one of our volunteers, found figured out [a trick](https://github.com/docker/for-mac/issues/1759) to fix the issue!
+
+For performance boost, there's a a popular tool called [docker-sync](http://docker-sync.io/).
 
 ## Fork repositories
 
@@ -58,6 +76,8 @@ Build and run the docker containers. This command can take several minutes, so b
 docker-compose up
 ```
 
+*Note for Windows: docker-compose requires Docker to be running in the background. If docker-compose fails run Docker Toolbox first and try again*
+
 *The database may fail to initialize. Simply re-run the above command and it should work.*
 
 To see currently running docker containers, run the following command in a different terminal.
@@ -70,7 +90,7 @@ docker ps
 
 ### Setup the mysql container with a database
 
-**NOTE: Following commands should be done in a separate terminal window**
+**NOTE: Again, following commands should be done in a separate terminal window than before**
 
 Connect to the ubyssey_db docker container.
 

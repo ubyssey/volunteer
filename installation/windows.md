@@ -4,9 +4,9 @@
 
 ### Install Python
 
-Install Python if don't have it on your system:
-
-https://www.python.org/downloads/
+On Mac and Linux, python & pip comes with the system.  
+For windows, you need to download them manually.  
+[Download Python 2.7](https://www.python.org/downloads/release/python-2715/) then [install pip](https://pip.pypa.io/en/stable/installing/) by following the links
 
 ### Install Visual Studio
 
@@ -18,13 +18,14 @@ Visual Studio: https://www.visualstudio.com/downloads/
 
 Windows 8.1 SDK: https://developer.microsoft.com/en-us/windows/downloads/windows-8-1-sdk
 
-### Install pip
-
-You should install pip if you haven't already, but note that pip often comes with the Python installation. If you don't have pip installed, follow the instructions here: https://pip.pypa.io/en/stable/installing/
-
 ### Create a virtual environment
 
 We recommend working inside a virtualenv, but it's not required.
+
+*Note: copy and paste **all** commands in terminal:*
+
+(How to find the terminal:  
+Win: Click on Start btn > Type "cmd" > Click on "Command Prompt")
 
 ```bash
 # Install virtualenv if you don't have it
