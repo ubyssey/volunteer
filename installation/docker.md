@@ -1,4 +1,4 @@
-## Setup Instruction for Docker
+## Setup Instruction for Docker :whale:
 
 *Note: the following setup was done on an Ubunutu Linux, but should work on windows systems as well*
 
