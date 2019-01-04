@@ -29,6 +29,6 @@ When you clone the project, be sure to clone from your own forked repo (ex. <YOU
 
 ![fork5](https://user-images.githubusercontent.com/9669739/46325215-15778000-c5ac-11e8-9c98-1c7cce6cca6c.png)
 
-Once you're done Follow the same instructions for [Dispatch](https://github.com/ubyssey/ubyssey.ca)
+:point_right: **Once you're done Follow the same instructions for [Dispatch](https://github.com/ubyssey/ubyssey.ca)** :point_left:
 
 To learn more go to GitHub's [Official Forking Tutorial](https://help.github.com/articles/fork-a-repo/)
