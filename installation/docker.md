@@ -10,13 +10,15 @@ On Mac and Linux, python & pip comes with the system.
 For windows, you need to download them manually.  
 [Download Python 2.7](https://www.python.org/downloads/release/python-2715/) then [install pip](https://pip.pypa.io/en/stable/installing/) by following the links
 
+*Note: you may need to add python AND pip to your path, follow the instructions [here](https://stackoverflow.com/questions/3701646/how-to-add-to-the-pythonpath-in-windows).*
+
 ### Install Docker
 
 Install `docker 18.06.x` Follow the instructions [from official Docker doc](https://docs.docker.com/). This will require you to create a docker account if you do not already have one.
 
-Afterward install `docker-compose 1.10.x` from [here](https://docs.docker.com/compose/install/) (If not already installed with docker)
+Afterward install `docker-compose 1.10.x` from [here](https://docs.docker.com/compose/install/) (If not already installed with docker).
 
-*If setting up on linux, all docker and docker-compose commands should be preceeded with `sudo`.* To enable docker without `sudo`, follow this [official post-installation doc](https://docs.docker.com/install/linux/linux-postinstall/)
+*If setting up on linux, all docker and docker-compose commands should be preceeded with `sudo`.* To enable docker without `sudo`, follow this [official post-installation doc](https://docs.docker.com/install/linux/linux-postinstall/).
 
 ## Set up development folder
 
@@ -24,7 +26,7 @@ Before we proceed, we recommend creating a dedicated directory (folder) for Ubys
 
 *Note: copy and paste **all** commands in terminal:*
 
-(How to find the terminal:  
+##### How to find the terminal:  
 Win: Click on Start btn > Type "cmd" > Click on "Command Prompt"  
 Mac: Open Spotlight search or Applications folder > Type "terminal")
 
@@ -45,9 +47,9 @@ We recommend working inside a virtualenv, but it's not required.
 
 #### Note for Mac
 
-Docker have [a known CPU overusage issue](https://github.com/docker/for-mac/issues/1759) for macOS that may make your fan go wild.
+Docker has a [a known CPU overusage issue](https://github.com/docker/for-mac/issues/1759) for macOS that may make your fan go wild.
 
-Jason, one of our volunteers, found figured out [a trick](https://github.com/docker/for-mac/issues/1759) to fix the issue!
+Jason, one of our volunteers, found [a trick](https://github.com/docker/for-mac/issues/1759) to fix the issue!
 
 For performance boost, there's a a popular tool called [docker-sync](http://docker-sync.io/).
 
@@ -70,17 +72,22 @@ cd ~/ubyssey-dev
 cp -r ./ubyssey.ca/local-dev/. .
 ```
 
+We now need to set the local settings for django.
+
+```cp -r ubyssey.ca/_settings/settings-local.py ubyssey.ca/ubyssey/settings.py```
+
 Build and run the docker containers. This command can take several minutes, so be patient.
 
 ```bash
 docker-compose up
 ```
 
-*Note for Windows: docker-compose requires Docker to be running in the background. If docker-compose fails run Docker Toolbox first and try again*
+#### Note for Windows: 
+docker-compose requires Docker to be running in the background. If docker-compose fails run Docker Toolbox first and try again*
 
-*The database may fail to initialize. Simply re-run the above command and it should work.*
+*Note: The database may fail to initialize. Simply re-run the above command and it should work.*
 
-To see currently running docker containers, run the following command in a different terminal.
+To see currently running docker containers, run the following command in a separate terminal.
 
 ```bash
 docker ps
@@ -137,6 +144,10 @@ python manage.py migrate
 
 Once the database has been populated, and migrations have been applied,
 you should be able to proceed to `localhost:8000` and `localhost:8000/admin` to view ubyssey.ca and dispatch running from your ubyssey-dev docker container.
+
+### Media Files
+
+Download and unzip the [sample media folder](https://storage.googleapis.com/ubyssey/dropbox/media.zip) to `ubyssey-dev/ubyssey.ca/media/`. This will make it so the images attached to the sample articles are viewable.
 
 #### Dispatch
 
