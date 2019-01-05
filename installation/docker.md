@@ -1,4 +1,4 @@
-## Setup Instruction for Docker :whale:
+## Setup Instruction for Docker
 
 *Note: the following setup was done on an Ubunutu Linux, but should work on windows systems as well*
 
@@ -6,8 +6,8 @@
 
 ### Install Python
 
-On Mac and Linux, python & pip comes with the system.  
-For windows, you need to download them manually.  
+On Mac and Linux, python & pip comes with the system.
+For windows, you need to download them manually.
 [Download Python 2.7](https://www.python.org/downloads/release/python-2715/) then [install pip](https://pip.pypa.io/en/stable/installing/) by following the links
 
 *Note: you may need to add python AND pip to your path, follow the instructions [here](https://stackoverflow.com/questions/3701646/how-to-add-to-the-pythonpath-in-windows).*
@@ -26,8 +26,8 @@ Before we proceed, we recommend creating a dedicated directory (folder) for Ubys
 
 *Note: copy and paste **all** commands in terminal:*
 
-##### How to find the terminal:  
-Win: Click on Start btn > Type "cmd" > Click on "Command Prompt"  
+##### How to find the terminal:
+Win: Click on Start btn > Type "cmd" > Click on "Command Prompt"
 Mac: Open Spotlight search or Applications folder > Type "terminal")
 
 ```bash
@@ -84,7 +84,7 @@ Build and run the docker containers. This command can take several minutes, so b
 docker-compose up
 ```
 
-#### Note for Windows: 
+#### Note for Windows:
 docker-compose requires Docker to be running in the background. If docker-compose fails run Docker Toolbox first and try again*
 
 *Note: The database may fail to initialize. Simply re-run the above command and it should work.*
