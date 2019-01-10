@@ -1,6 +1,6 @@
 ## Setup Instructions for Windows
 
-*Note: Current recommended setup is to follow [Docker Instructions](installation/docker.md)*
+*Note: Common installation errors & fixes are documented at the bottom of this page if you ever get stuck!* 
 
 ### Install Python
 
@@ -76,13 +76,43 @@ copy _settings/settings-local.py ubyssey/settings.py
 
 ### Database
 
+In your `settings.py`, make sure config under `LOCAL_MYSQL` is un-commented
+
+```
+# Commented
+################ LOCAL MYSQL ##################
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'ubyssey',
+#         'USER': 'root',
+#         'PASSWORD': 'ubyssey',
+#         'HOST': '127.0.0.1',
+#         'PORT': '3306',
+#     },
+# }
+
+# Un-commented
+################ LOCAL MYSQL ##################
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'ubyssey',
+        'USER': 'root',
+        'PASSWORD': 'ubyssey',
+        'HOST': '127.0.0.1',
+        'PORT': '3306',
+    },
+}
+```
+
 Dispatch requires a MySQL database to store information. Install MySQL with MySQL installer.
 
 ```bash
 https://dev.mysql.com/downloads/windows/installer/5.6.html
 ```
 
-If you set a password for the root user, you will need to update `settings.py` accordingly.
+**If you set a password for the root user, you will need to update `PASSWORD` value in `DATABASESES` object in `settings.py` accordingly.**
 
 Now run the MySQL command line client that comes with the mysql installation and create a fresh database:
 
@@ -90,12 +120,17 @@ Now run the MySQL command line client that comes with the mysql installation and
 CREATE DATABASE ubyssey;
 ```
 
-Next, save the sample data from https://storage.googleapis.com/ubyssey/dropbox/ubyssey.sql to your local drive, which is usually located at  `\MySQL Server 5.7\bin` and load the SQL file to the database.
+Next, save the sample data from https://storage.googleapis.com/ubyssey/dropbox/ubyssey.sql to your local drive, which is usually located at  `\MySQL Server 5.7\bin` and load the SQL file to the database. 
 
 ```bash
 USE ubyssey;
 source ubyssey.sql
 ```
+
+If mysql can't find the ubyssey.sql file, try passing the direct path of the sql file.
+
+![windwos_path](https://user-images.githubusercontent.com/9669739/51000884-33c21580-14e3-11e9-9ce2-9cc3276917c5.jpg)
+
 
 ### Static files
 
@@ -159,6 +194,15 @@ Note that this is the first edition of troubleshooting FAQ on Windows installati
 	Error: %1 is not a valid Win32 application.
 
 **A:** Try run ```bash npm rebuild node-sass```, note that certain steps may take longer than expected so be patient. Read the error information. Based on previous experiences, you might be missing a Windows 8.1 sdk, or related Visual Studio C++ environment.
+
+--
+
+**Q: I encoutered following waning when running the server about mysql how can I fix this?**
+
+	django.db.utils.OperationalError: (2005, "Unknown MySQL server host 'db' (0)")	
+
+
+**A:** Try commenting out `DOCKER MYSQL` and un-commenting `LOCAL MYSQL` section in `settings.py`. Our local setting is based on Docker setup (for now).
 
 --
 
