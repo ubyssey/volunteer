@@ -1,4 +1,5 @@
-## Setup Instruction for Docker
+# Setup Instruction for Docker
+
 
 *Note: the following setup was done on an Ubunutu Linux, but should work on windows systems as well*
 
@@ -173,4 +174,49 @@ then you can rebuild your docker images using
 docker-compose up
 ```
 
+### Using pdb with Docker
+**Note: pdb is a command line debugging tool for python
 
+First we need to update our `docker-compose.yml` to allow our `ubyssey-dev` container to connect with pdb. Make sure the django container looks like the following.
+
+```yaml
+  django:
+    build: .
+    command: bash -c "cd ubyssey.ca && python manage.py runserver 0.0.0.0:8000"
+    volumes:
+      - ./dispatch/dispatch:/dispatch/dispatch
+      - .:/ubyssey.ca
+      - ~/.config/:/root/.config
+    volumes_from:
+      - gulp
+      - yarn
+    ports:
+      - "8000:8000"
+      #######
+      # PDB #
+      #######
+      - "4444:4444"
+    depends_on:
+      db:
+        condition: service_healthy
+    container_name: ubyssey-dev
+    #######
+    # PDB #
+    #######
+    stdin_open: true
+    tty: true
+  ```
+
+Now kill any running docker containers, and rerun them with `docker-compose up`.
+
+Add `import pdb` to the .py file you are interested in debugging, and set a breakpoint with `pdb.set_trace()`.
+
+To step through the source, open a new terminal and connect to the `ubyssey-dev` container.
+
+```bash
+docker attach ubyssey-dev
+```
+
+the pdb output will start to display here when you hit your breakpoint.
+
+For more information on pdb and how to use it, there is a helpful post at [RealPython](https://realpython.com/python-debugging-pdb/).
