@@ -77,7 +77,7 @@ pip install ~/Downloads/MySQL_python-1.2.5-cp27-none-win_amd64.whl
 Copy the sample settings file into the project root:
 
 ```bash
-copy _settings/settings-local.py ubyssey/settings.py
+copy _settings\settings-local.py ubyssey\settings.py
 ```
 
 If you are using git bash instead of windows command prompt, then use:
@@ -88,7 +88,7 @@ cp _settings/settings-local.py ubyssey/settings.py
 
 ### Database
 
-In your `settings.py`, make sure config under `LOCAL_MYSQL` is un-commented
+In your `settings.py`, make sure config under `LOCAL_MYSQL` is un-commented. Also, make sure the DOCKER MYSQL is commented.
 
 ```
 # Commented
@@ -126,7 +126,13 @@ https://dev.mysql.com/downloads/windows/installer/5.6.html
 
 **If you set a password for the root user, you will need to update `PASSWORD` value in `DATABASESES` object in `settings.py` accordingly.**
 
-Now run the MySQL command line client that comes with the mysql installation and create a fresh database:
+Now run the MySQL command line client that comes with the mysql installation (if you're not using git bash terminal, then you can remove the "winpty"):
+
+```bash
+winpty mysql -u root -p
+```
+
+And create a fresh database:
 
 ```bash
 CREATE DATABASE ubyssey;
@@ -143,6 +149,11 @@ If mysql can't find the ubyssey.sql file, try passing the direct path of the sql
 
 ![windwos_path](https://user-images.githubusercontent.com/9669739/51000884-33c21580-14e3-11e9-9ce2-9cc3276917c5.jpg)
 
+If you still get "failed to open file" error, and you're using git bash terminal, then place the file ubyssey.sql into Downloads, and then run:
+
+```bash
+source ~/Downloads/ubyssey.sql
+```
 
 ### Static files
 
@@ -176,7 +187,7 @@ Download and unzip the [sample media folder](https://storage.googleapis.com/ubys
 
 ### Running the server
 
-Now start the server!
+Now start the server! Go to root directory (inside ubyssey.ca folder), and then run:
 
 ```bash
 python manage.py runserver
