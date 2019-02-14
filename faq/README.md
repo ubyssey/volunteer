@@ -4,6 +4,7 @@ Table of contents:
 - [CSS Not loading](#css-not-loading)
 - [Debugging Django w/ Docker](#debugging-django-with-docker)
 - [Django Migrations w/ Docker](#django-migrations-with-docker)
+- [node-sass binding error](#node-sass-binding-error)
 
 ### CSS not loading
 
@@ -59,4 +60,34 @@ python manage.py migrate
 
 # Exit from docker container
 exit
+```
+
+### Node-sass binding error
+
+You might run into an error that look something like this in gulp container while using our Docker setup:
+
+```
+Error: Missing binding /Users/Dan/Library/Application Support/Atom/dev/packages/source-preview-sass/node_modules/node-sass/vendor/darwin-x64-47/binding.node
+Node Sass could not find a binding for your current environment: OS X 64-bit with Node.js 6.x
+Found bindings for the following environments:
+
+    * OS X 64-bit with Node.js 6.x
+      This usually happens because your environment has changed since running `npm install`.
+      Run `npm rebuild node-sass` to build the binding for your current environment.
+```
+
+In that case, change a line in your `docker-compose.yml` file where it says:
+
+```yaml
+gulp:
+  build: .
+    command: bash -c "cd ubyssey.ca/ubyssey/static && yarn && gulp"
+```
+
+to
+
+```yaml
+gulp:
+  build: .
+    command: bash -c "cd ubyssey.ca/ubyssey/static && yarn install --force && gulp"
 ```
