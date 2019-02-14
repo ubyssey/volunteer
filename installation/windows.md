@@ -66,6 +66,12 @@ pip install wheel
 pip install theFileYouJustDownloaded
 ```
 
+If you are on a 64-bit machine, the command may look like this:
+
+```bash
+pip install ~/Downloads/MySQL_python-1.2.5-cp27-none-win_amd64.whl
+```
+
 ### Project settings
 
 Copy the sample settings file into the project root:
