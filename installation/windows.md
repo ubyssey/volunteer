@@ -80,6 +80,12 @@ Copy the sample settings file into the project root:
 copy _settings/settings-local.py ubyssey/settings.py
 ```
 
+If you are using git bash instead of windows command prompt, then use:
+
+```bash
+cp _settings/settings-local.py ubyssey/settings.py
+```
+
 ### Database
 
 In your `settings.py`, make sure config under `LOCAL_MYSQL` is un-commented
