@@ -5,6 +5,7 @@ Table of contents:
 - [Debugging Django w/ Docker](#debugging-django-with-docker)
 - [Django Migrations w/ Docker](#django-migrations-with-docker)
 - [node-sass binding error](#node-sass-binding-error)
+- [Admin not loading](#admin-not-loading)
 
 ### CSS not loading
 
@@ -91,3 +92,12 @@ gulp:
   build: .
     command: bash -c "cd ubyssey.ca/ubyssey/static && yarn install --force && gulp"
 ```
+
+### Admin not loading
+
+When the admin page looks blank, that means the dispatch version is out of sync with ubyssey.ca repo
+
+![blank_admin](https://user-images.githubusercontent.com/9669739/54364105-7a3e0880-4629-11e9-8bb8-b0218f13c852.png)
+
+Solve this by going into dispatch folder, and running `python setup.py develop`
+
