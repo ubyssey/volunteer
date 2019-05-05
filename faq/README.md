@@ -6,6 +6,7 @@ Table of contents:
 - [Django Migrations w/ Docker](#django-migrations-with-docker)
 - [node-sass binding error](#node-sass-binding-error)
 - [Admin not loading](#admin-not-loading)
+- [How to access Docker MySQL console](#how-to-access-docker-mysql-console)
 
 ### CSS not loading
 
@@ -101,3 +102,17 @@ When the admin page looks blank, that means the dispatch version is out of sync 
 
 Solve this by going into dispatch folder, and running `python setup.py develop`
 
+### How to access Docker MySQL console
+
+In order to inspect local DB in docker, you need to attach command line session to running docker container. Run the following:
+
+```bash
+docker exec -it ubyssey_db bash -l
+```
+
+Once you're in, run the usual mysql command to run the console
+
+```bash
+# Pass is ubyssey
+mysql -u root -p
+```
