@@ -13,7 +13,7 @@ Before you use these links, sign up for a Codecademy account: https://www.codeca
 
 - Learn CLI - https://www.codecademy.com/learn/learn-the-command-line
 - Ryan's Tutorial: The command line - https://ryanstutorials.net/linuxtutorial/commandline.php
-- linuxcommands.com (http://linuxcommand.org/lc3_learning_the_shell.php)
+- linuxcommands.com - http://linuxcommand.org/lc3_learning_the_shell.php
 - Better `man` - https://tldr.sh/
 
 ### Git
@@ -30,7 +30,10 @@ Before you use these links, sign up for a Codecademy account: https://www.codeca
 
 ### JavaScript
 
-- Learn JavaScript https://www.codecademy.com/learn/learn-javascript
+- Learn JavaScript - https://www.codecademy.com/learn/learn-javascript
+
+### D3
+
 - D3.js tutorials - http://alignedleft.com/tutorials/d3/
 
 ### React
@@ -38,6 +41,15 @@ Before you use these links, sign up for a Codecademy account: https://www.codeca
 - Official React intro tutorial - https://reactjs.org/docs/getting-started.html
 - Learn Raw React — no JSX, no Flux, no ES6, no Webpack - http://jamesknelson.com/learn-raw-react-no-jsx-flux-es6-webpack/
 - Build with React - http://buildwithreact.com/
+
+### Redux
+
+- Getting Started with Redux - (https://egghead.io/courses/getting-started-with-redux)
+
+### RamdaJs
+
+- Why Ramda? - https://fr.umio.us/why-ramda/
+- Favoring Curry - https://fr.umio.us/favoring-curry/
 
 ### Python
 
