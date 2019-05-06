@@ -4,6 +4,11 @@ Here's a list of useful resources for getting started with web development at _T
 
 Before you use these links, sign up for a Codecademy account: https://www.codecademy.com/register
 
+### Workflow Tips
+- Get [Octotree Extension](https://github.com/ovity/octotree)
+- Read [Tips on making good git commit messages](https://chris.beams.io/posts/git-commit/)
+- Read [Tips on how to do code review well](https://phauer.com/2018/code-review-guidelines/)
+
 ### Command Line Interface (CLI)
 
 - Learn CLI - https://www.codecademy.com/learn/learn-the-command-line
