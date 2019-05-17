@@ -168,7 +168,7 @@ npm -v
 node -v
 ```
 
-Install a global verison of gulp (if you don't have it already) and build the static files:
+Install a global version of gulp (if you don't have it already) and build the static files:
 
 ```bash
 cd ubyssey\static
@@ -178,7 +178,7 @@ npm install
 
 # Install and run gulp
 npm install -g gulp
-gulp build-dev
+gulp buildDev
 ```
 
 ### Media files
