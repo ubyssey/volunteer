@@ -22,7 +22,9 @@ To fix this issue, make sure [VERSION variable here](https://github.com/ubyssey/
 
 ### Debugging Django with Docker
 
-We will use `pdb` to debug python code ([quick intro](https://github.com/spiside/pdb-tutorial)). Add the following line to where you want to debug the code:
+(This trick works if you run docker-compose in detached mode (`docker-compose up -d`))
+
+You can use `pdb` to debug python code ([quick intro](https://github.com/spiside/pdb-tutorial)) (think of `gdb` for your python code). Add the following line to where you want to debug the code:
 
 ```python
 import pdb; pdb.set_trace()
@@ -35,7 +37,9 @@ stdin_open: true
 tty: true
 ```
 
-If those are in right place, run `docker attach ubyssey-dev ` to start debugging!
+If those are in right place, run the code until execution hit the `pdb.set_trace()` line.
+
+Run `docker attach --detach-keys z ubyssey-dev` to start debugging, and exit out of the debugging session by pressing `z` button
 
 
 ### Django Migrations with Docker
