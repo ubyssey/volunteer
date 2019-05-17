@@ -44,7 +44,7 @@ Before you use these links, sign up for a Codecademy account: https://www.codeca
 
 ### Redux
 
-- Getting Started with Redux - (https://egghead.io/courses/getting-started-with-redux)
+- Getting Started with Redux - https://egghead.io/courses/getting-started-with-redux
 
 ### RamdaJs
 
@@ -57,4 +57,8 @@ Before you use these links, sign up for a Codecademy account: https://www.codeca
 
 ### Django
 
-- Django getting started tutorial - https://www.djangoproject.com/start/
+- Django Getting Started Tutorial - https://www.djangoproject.com/start/
+
+### Django REST Framework (for our API)
+
+- Django REST Framework tutorial series - https://www.django-rest-framework.org/tutorial/1-serialization/
