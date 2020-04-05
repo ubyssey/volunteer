@@ -18,7 +18,7 @@ There are often a case when CSS is not being loaded properly on development. Why
 
 This is happening due to version difference between **`VERSION` variable in `settings.py`** and **`version` field in `package.json`**. We compile our static asset with [Gulp](https://gulpjs.com/), and it looks at `version` field in `package.json` as defined in [this line from gulpfile.js](https://github.com/ubyssey/ubyssey.ca/blob/eb4b406b462fdee5b36790fc22642f6e97f418ec/ubyssey/static/gulpfile.js#L17). However, Django looks at `VERSION` variable in its `settings.py` file.
 
-To fix this issue, make sure [VERSION variable here](https://github.com/ubyssey/ubyssey.ca/blob/develop/_settings/settings-local.py#L10) and [version field here](https://github.com/ubyssey/ubyssey.ca/blob/develop/ubyssey/static/package.json#L3) are matching in your machine.
+To fix this issue, make sure [VERSION variable here](https://github.com/ubyssey/ubyssey.ca/blob/develop/_settings/settings-local.py#L10) and [version field here](https://github.com/ubyssey/ubyssey.ca/blob/develop/ubyssey/static/package.json#L3) are matching in your machine. Also check the version of ubyssey.ca/ubyssey/settings.py in your machine. This file is only for your local environment and does not get updated from remote repository. 
 
 ### Debugging Django with Docker
 
