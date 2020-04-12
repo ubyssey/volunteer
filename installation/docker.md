@@ -54,15 +54,15 @@ Jason, one of our volunteers, found [a trick](https://github.com/docker/for-mac/
 
 For performance boost, there's a a popular tool called [docker-sync](http://docker-sync.io/).
 
-## Fork repositories
+## Clone repositories
 
-We will now download `ubyssey.ca` and `dispatch` projects. Follow [our forking instructions](/installation/forking-the-repo.md) first to copy the project under your GitHub username. Run these commands inside `ubyssey-dev` dir (note: to hcheck which dir you are in, try `pwd` command):
+We will now download `ubyssey.ca` and `dispatch` projects. This is the github repository (https://github.com/ubyssey). 
 
 ```bash
 # Inside ubyssey-dev dir
 # Change urls to your cloned repo
-git clone https://github.com/<YOUR-USERNAME>/ubyssey.ca.git
-git clone https://github.com/<YOUR-USERNAME>/dispatch.git
+git clone https://github.com/ubyssey/ubyssey.ca.git
+git clone https://github.com/ubyssey/dispatch.git
 ```
 
 We have stored the config files for Docker in `local-dev`dir inside `ubyssey.ca` project. To make enable Docker we first move the files to appropriate location:
@@ -84,6 +84,43 @@ Build and run the docker containers. This command can take several minutes, so b
 ```bash
 docker-compose up
 ```
+
+If you see that there are no format in (http://localhost:8000/). You will need to set-up `ubyssey.ca/ubyssey/static/`
+
+### Static files
+
+**For Mac**
+Install the required Node packages with npm:
+
+```bash
+cd ubyssey/static
+sudo npm install
+```
+
+Install a global version of gulp \(if you don't have it already\) and build the static files:
+
+```bash
+sudo npm install -g gulp
+gulp buildDev
+```
+
+**For Windows**
+```bash
+cd ubyssey\static
+
+# Install node packages
+npm install
+```
+
+Install a global version of gulp \(if you don't have it already\) and build the static files:
+
+```
+# Install and run gulp
+npm install -g gulp
+gulp buildDev
+```
+
+_If you run into any error while installing npm or gulp, remove `ubyssey.ca/ubyssey/static/node_modules` by running `rm -rf node_modules` for **Mac**, `del node_modules` for **Windows**, and **redo** the installation._
 
 #### Note for Windows:
 docker-compose requires Docker to be running in the background. If docker-compose fails run Docker Toolbox first and try again*

@@ -108,15 +108,17 @@ Install the required Node packages with npm:
 
 ```bash
 cd ubyssey/static
-npm install
+sudo npm install
 ```
 
 Install a global version of gulp \(if you don't have it already\) and build the static files:
 
 ```bash
-npm install -g gulp
+sudo npm install -g gulp
 gulp buildDev
 ```
+
+_If you run into any error while installing npm or gulp, remove `ubyssey.ca/ubyssey/static/node_modules` by running `rm -rf node_modules` and redo the installation._
 
 ### Media Files
 
