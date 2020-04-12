@@ -16,7 +16,7 @@ docker-compose up
 Uninstall the production version of Dispatch \(this was installed when you set up the `ubyssey.ca` repo\)
 
 ```bash
-pip uninstall dispatch
+pip3 uninstall dispatch
 ```
 
 Clone the dispatch repo and install it in "develop" mode
@@ -25,14 +25,14 @@ Clone the dispatch repo and install it in "develop" mode
 git clone https://github.com/ubyssey/dispatch.git
 
 cd dispatch
-pip install -e .[dev]
-python setup.py develop
+pip3 install -e .[dev]
+python3 setup.py develop
 ```
 
 From the ubyssey.ca repo, run the "migrate" command to bring your database schema up to date:
 
 ```bash
-python manage.py migrate
+python3 manage.py migrate
 ```
 
 Use `yarn` to run the Dispatch Webpack build:
@@ -53,7 +53,7 @@ yarn start
 
 ```bash
 # Link the tests to local files instead of package files
-python setup.py develop
+python3 setup.py develop
 
 # Run tests
 # make sure your current working directory is ubyssey-dev/dispatch
