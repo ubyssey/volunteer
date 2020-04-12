@@ -56,7 +56,7 @@ For performance boost, there's a a popular tool called [docker-sync](http://dock
 
 ## Clone repositories
 
-We will now download `ubyssey.ca` and `dispatch` projects. This is the github repository (https://github.com/ubyssey). 
+We will now download `ubyssey.ca` and `dispatch` projects. This is the github link (https://github.com/ubyssey). 
 
 ```bash
 # Inside ubyssey-dev dir
@@ -165,6 +165,8 @@ curl https://storage.googleapis.com/ubyssey/dropbox/ubyssey.sql | mysql -u root 
 ```
 
 Your db container is up and running! Type `exit` to exit from this container
+
+_If you run into **operation errors**, drop the schemas in mysql database and repopulate it._
 
 ### Perform django migrations on the docker container
 
