@@ -1,13 +1,22 @@
-# Setup Instruction for Docker
+# Automated Setup Instructions, using Docker
 
+(WIP)
 
-*Note: the following setup was done on an Ubunutu Linux, but should work on windows systems as well*
+## What these instructions will accomplish
 
-**Note for Windows: From what we've seen, Windows Docker Toolbox seem to have a poor performance. We recommend Windows users to set up the environment natively as described in [Windows Setup tutorial](/installation/windows.md)**
+Starting out as a new coder on an ongoing coding project is generally a difficult and time-consuming process. Even if your general computer knowledge is strong, knowledge of the specific tools involved may still be weak, and there’s almost inevitably a lot of learning to do. Furthermore, because you’re likely to have your own computer, we have little control over what you have installed, creating the risk of wasting time doing a lot of individualized troubleshooting.
+
+Because the Ubyssey depends so much upon volunteer work from students who are busy with school work, it is necessary coder **onboarding be made as fast as possible**, so volunteers do not get caught up on the “boring stuff” of simply getting a local development environment set up.  We therefore distribute **virutalized development machines** using containerization technology, specifically, Docker. This technology is often used in the tech industry alongside DevOps practices. The site and all its dependencies are packaged together in a “container”. Containers are a virtualization technology that can start up faster than traditional VMs, because many containers can share a single Linux kernel. The containerized website runs the same on any individual computer as it runs on the production environment.
+
+## What do I need?
+
+### Visual Studio Code
+
+This sort of workflow is best done using [Visual Studio Code](https://code.visualstudio.com/), available for all major platforms, because Microsoft has developed a [Remote Development plugin](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack) designed to facilitate this.
 
 ### Install Python
 
-On Mac and Linux, python & pip comes with the system.
+On Mac and Linux, python & pip come with the system.
 For windows, you need to download them manually.
 [Download Python 3.7](https://www.python.org/downloads/release/python-376/) then [install pip](https://pip.pypa.io/en/stable/installing/) by following the links
 
@@ -27,7 +36,7 @@ Before we proceed, we recommend creating a dedicated directory (folder) for Ubys
 
 *Note: copy and paste **all** commands in terminal:*
 
-##### How to find the terminal:
+### How to find the terminal:
 Win: Click on Start btn > Type "cmd" > Click on "Command Prompt"
 Mac: Open Spotlight search or Applications folder > Type "terminal")
 
@@ -46,7 +55,7 @@ source bin/activate
 
 We recommend working inside a virtualenv, but it's not required.
 
-#### Note for Mac
+### (Possibly outdated) Note for Mac
 
 Docker has a [a known CPU overusage issue](https://github.com/docker/for-mac/issues/1759) for macOS that may make your fan go wild.
 
