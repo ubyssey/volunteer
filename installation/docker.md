@@ -1,52 +1,76 @@
-# Setup Instruction for Docker
+# Automated Setup Instructions using Docker
 
+(This is a Work In Progress. Please contact the current web devs if anything is confusing!)
 
-*Note: the following setup was done on an Ubunutu Linux, but should work on windows systems as well*
+## Setup Basics:
 
-**Note for Windows: From what we've seen, Windows Docker Toolbox seem to have a poor performance. We recommend Windows users to set up the environment natively as described in [Windows Setup tutorial](/installation/windows.md)**
+1. Install [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git), [Docker](https://docs.docker.com/engine/), [Visual Studio Code](https://code.visualstudio.com/download), and the [Remote Development plugin for Visual Studio Code](https://code.visualstudio.com/docs/remote/remote-overview).
 
-### Install Python
+2. In your preferred development folder:
+```
+git clone https://github.com/ubyssey/ubyssey.ca.git/
+cd ubyssey.ca
+docker build . -t ubyssey/ubyssey.ca:latest
 
-On Mac and Linux, python & pip comes with the system.
-For windows, you need to download them manually.
-[Download Python 3.7](https://www.python.org/downloads/release/python-376/) then [install pip](https://pip.pypa.io/en/stable/installing/) by following the links
-
-*Note: you may need to add python AND pip to your path, follow the instructions [here](https://stackoverflow.com/questions/3701646/how-to-add-to-the-pythonpath-in-windows).*
-
-### Install Docker
-
-Install `docker 18.06.x` Follow the instructions [from official Docker doc](https://docs.docker.com/). This will require you to create a docker account if you do not already have one.
-
-Afterward install `docker-compose 1.10.x` from [here](https://docs.docker.com/compose/install/) (If not already installed with docker).
-
-*If setting up on linux, all docker and docker-compose commands should be preceeded with `sudo`.* To enable docker without `sudo`, follow this [official post-installation doc](https://docs.docker.com/install/linux/linux-postinstall/).
-
-## Set up development folder
-
-Before we proceed, we recommend creating a dedicated directory (folder) for Ubyssey related projects. In this tutorial we will refer to this dir as `ubyssey-dev` (you can use any other name that makes sense to you). Let's create the directory at the location you want the code to live in:
-
-*Note: copy and paste **all** commands in terminal:*
-
-##### How to find the terminal:
-Win: Click on Start btn > Type "cmd" > Click on "Command Prompt"
-Mac: Open Spotlight search or Applications folder > Type "terminal")
-
-```bash
-# Install virtualenv if you don't have it
-pip install virtualenv
-
-# Create a new virtual environment
-cd ~
-virtualenv ubyssey-dev
-cd ubyssey-dev
-
-# Activate the virtualenv
-source bin/activate
+## Or replace ubyssey/ubyssey.ca:latest with name of your choice
+## formatted like so: <dockerhub account>/<image name>:<tag>
 ```
 
-We recommend working inside a virtualenv, but it's not required.
+3. Again, in your preferred development folder:
+```
+git clone https://github.com/<your account>/ubyssey-dev.git
+```
+(If you changed the docker image's name, make sure to put `<dockerhub account>/<image name>:<tag>` in docker-compose.yml in `/ubyssey-dev/.devcontainer`)
 
-#### Note for Mac
+4. Use the Remote Development plugin to open the ubyssey-dev.git directory as a container
+5. If the database container isn't set up yet, connect to it:
+
+```bash
+docker exec -t -i ubyssey_db bash
+```
+This container may be named something other than ubyssey_db. If so, type `docker ps` to find what it is named. You can also connect to it without typing terminal commands if you download Docker Desktop.
+
+Once connected, setup the local database in the container.
+
+```bash
+# password is ubyssey
+mysql -u root -p
+create database ubyssey;
+quit;
+```
+
+Populate the database.
+
+```bash
+apt update
+apt-get install curl
+# password is ubyssey.
+# You may not be prompted for the password, and the curl operation may appear to have hanged. Simply type the password and press enter.
+curl https://storage.googleapis.com/ubyssey/dropbox/ubyssey.sql | mysql -u root ubyssey -p
+```
+6. You should now be able to develop inside the Docker container and see your development version of the site on localhost:8000
+
+## What does setting up like this accomplish?
+
+Starting out as a new coder on an ongoing coding project is generally a difficult and time-consuming process. Even if your general computer knowledge is strong, knowledge of the specific tools involved may still be weak, and there’s almost inevitably a lot of learning to do. Furthermore, because you’re likely to have your own computer, we have little control over what you have installed, creating the risk of wasting time doing a lot of individualized troubleshooting.
+
+Because the Ubyssey depends so much upon volunteer work from students who are busy with school work, it is necessary coder **onboarding be made as fast as possible**, so volunteers do not get caught up on the “boring stuff” of simply getting a local development environment set up.  We therefore distribute **virutalized development machines** using containerization technology, specifically, Docker. This technology is often used in the tech industry alongside DevOps practices. The site and all its dependencies are packaged together in a “container”. Containers are a virtualization technology that can start up faster than traditional VMs, because many containers can share a single Linux kernel. The containerized website can run the same on any individual computer as it runs on the production environment.
+
+## Software
+
+### Docker
+
+Install Docker (version `docker 19.03.x` is used in these instructions). Follow the instructions [from official Docker doc](https://docs.docker.com/). This will require you to create a docker account if you do not already have one.
+
+Afterward install docker-compose (these instructions use `docker-compose 1.25.x`) from [here](https://docs.docker.com/compose/install/) (If not already installed with docker).
+
+*(2020/06/29 - Possibly outdated note!) If setting up on linux, all docker and docker-compose commands should be preceeded with `sudo`.* To enable docker without `sudo`, follow this [official post-installation doc](https://docs.docker.com/install/linux/linux-postinstall/).
+
+### Visual Studio Code
+
+This sort of workflow is best done using [Visual Studio Code](https://code.visualstudio.com/), available for all major platforms, because Microsoft has developed a [Remote Development plugin](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack) designed to facilitate this.
+
+### (Possibly outdated) Note for Mac
 
 Docker has a [a known CPU overusage issue](https://github.com/docker/for-mac/issues/1759) for macOS that may make your fan go wild.
 
@@ -54,90 +78,57 @@ Jason, one of our volunteers, found [a trick](https://github.com/docker/for-mac/
 
 For performance boost, there's a a popular tool called [docker-sync](http://docker-sync.io/).
 
-## Clone repositories
+## How to clone repositories
+This is the github link (https://github.com/ubyssey). 
 
-We will now download `ubyssey.ca` and `dispatch` projects. This is the github link (https://github.com/ubyssey). 
+Clone the ubyssey.ca and the dispatch repositories to where-ever you prefer to work. This is typically done with the following terminal commands. If you forked the repository, use the URL of your fork. If you are working on a different branch, use the -b flag to specify which branch.
 
 ```bash
-# Inside ubyssey-dev dir
-# Change urls to your cloned repo
 git clone https://github.com/ubyssey/ubyssey.ca.git
 git clone https://github.com/ubyssey/dispatch.git
 ```
 
-We have stored the config files for Docker in `local-dev`dir inside `ubyssey.ca` project. To make enable Docker we first move the files to appropriate location:
-
-```bash
-# cd into your Ubyssey project dir
-cd ~/ubyssey-dev
-cp -r ./ubyssey.ca/local-dev/. .
+## How to build Docker images from scratch
+To build a docker image from a Dockerfile, run in the directory containing the Dockerfile:
 ```
-
-We now need to set the local settings for django.
-
-```bash
-cp -r ubyssey.ca/_settings/settings-local.py ubyssey.ca/ubyssey/settings.py
+docker build . -t <dockerhub account>/<image name>:<tag>
 ```
-
-Build and run the docker containers. This command can take several minutes, so be patient.
-
-```bash
-docker-compose up
+Or:
 ```
+docker build . -t <some other cloud hub>/<cloud account>/<image name>:<tag>
+```
+(The first works because Docker Hub will be assumed if the cloud hub isn’t specified)
 
-If you see that there are no format in (http://localhost:8000/). You will need to set-up `ubyssey.ca/ubyssey/static/`
+You can name the image whatever you like, but if you want to push it to the cloud, you should follow the above convention of <dockerhub account>/<image name>:<tag>
 
-### Static files
+In our project:
+* There will be a Dockerfile located in /ubyssey.ca/.
+* There is one in /dispatch/ too, but it layers Dispatch on top of the image built by the one in /ubyssey.ca/. To get this to work correctly, make sure you name the image built from the /ubyssey.ca/ Dockerfile the same name as is in the /dispatch/ Dockerfile’s FROM instruction
 
-**For Mac**
-Install the required Node packages with npm:
+
+## How to build the static files with Gulp
+Building static files with gulp is a step in front-end development which is somewhat analogous to compiling.
+
+If you see that there is no CSS styling applied to the HTML in (http://localhost:8000/), you may need to set-up `ubyssey.ca/ubyssey/static/`
+
+In the Django docker container:
+1) Install the required Node packages with npm:
 
 ```bash
 cd ubyssey/static
 sudo npm install
 ```
 
-Install a global version of gulp \(if you don't have it already\) and build the static files:
+2) Install a global version of gulp \(if you don't have it already\) and build the static files:
 
 ```bash
 sudo npm install -g gulp
 gulp buildDev
 ```
 
-**For Windows**
-```bash
-cd ubyssey\static
-
-# Install node packages
-npm install
-```
-
-Install a global version of gulp \(if you don't have it already\) and build the static files:
-
-```
-# Install and run gulp
-npm install -g gulp
-gulp buildDev
-```
-
 _If you run into any error while installing npm or gulp, remove `ubyssey.ca/ubyssey/static/node_modules` by running `rm -rf node_modules` for **Mac**, `del node_modules` for **Windows**, and **redo** the installation._
 
-#### Note for Windows:
-docker-compose requires Docker to be running in the background. If docker-compose fails run Docker Toolbox first and try again*
-
-*Note: The database may fail to initialize. Simply re-run the above command and it should work.*
-
-To see currently running docker containers, run the following command in a separate terminal.
-
-```bash
-docker ps
-```
-
-**NOTE: Keep this terminal window with docker running open for following commands**
-
-### Setup the mysql container with a database
-
-**NOTE: Again, following commands should be done in a separate terminal window than before**
+## Setup the mysql container with a database
 
 Connect to the ubyssey_db docker container.
 
@@ -168,7 +159,7 @@ Your db container is up and running! Type `exit` to exit from this container
 
 _If you run into **operation errors**, drop the schemas in mysql database and repopulate it._
 
-### Perform django migrations on the docker container
+## Performing django migrations on the docker container
 
 Connect to the `ubyssey-dev` docker container
 
@@ -186,20 +177,25 @@ python manage.py migrate
 Once the database has been populated, and migrations have been applied,
 you should be able to proceed to `localhost:8000` and `localhost:8000/admin` to view ubyssey.ca and dispatch running from your ubyssey-dev docker container.
 
-### Media Files
+## Media Files
 
 Download and unzip the [sample media folder](https://storage.googleapis.com/ubyssey/dropbox/media.zip) to `ubyssey-dev/ubyssey.ca/media/`. This will make it so the images attached to the sample articles are viewable.
 
-#### Dispatch
+## Using Dispatch
 
 You can see Dispatch by going to `http://localhost:8000/admin/`
 
 Username is `volunteer@ubyssey.ca`, password is `volunteer`
 
+## Extra docker info
 
-### Extra docker info
+To see currently running docker containers, run the following command in a separate terminal.
 
-#### When in doubt, you may need to clear docker's cache and remove all docker images.
+```bash
+docker ps
+```
+
+### When in doubt, you may need to clear docker's cache and remove all docker images.
 
 ```bash
 # will remove docker cache and clear all images
