@@ -3,10 +3,26 @@
 (WIP)
 ## Quick Summary Version:
 
-1. Install Docker, Visual Studio Code, and the Remote Development plugin for Visual Studio Code.
-2. Clone ubyssey.ca.git, dispatch.git, ubyssey-dev.git and build the corresponding Docker images
-3. Use the Remote Development plugin to open the ubyssey-dev.git directory as a container
-4. If the database container isn't set up yet, connect to it:
+1. Install git, Docker, Visual Studio Code, and the Remote Development plugin for Visual Studio Code.
+2. In your preferred development folder:
+```
+git clone https://github.com/ubyssey/ubyssey.ca.git/
+cd ubyssey.ca
+docker build . -t ubyssey/ubyssey.ca:latest
+
+## Or replace ubyssey/ubyssey.ca:latest with name of your choice formatted like: <dockerhub account>/<image name>:<tag>
+```
+
+4. In a directory of your choosing do:
+```
+git clone https://github.com/<your account>./ubyssey-dev.git
+```
+
+4.5.
+(If you changed the docker image's name, make sure to put <dockerhub account>/<image name>:<tag> in docker-compose.yml in /ubyssey-dev/.devcontainer)
+
+5. Use the Remote Development plugin to open the ubyssey-dev.git directory as a container
+6. If the database container isn't set up yet, connect to it:
 
 ```bash
 docker exec -t -i ubyssey_db bash
@@ -30,7 +46,7 @@ apt-get install curl
 # You may not be prompted for the password, and the curl operation may appear to have hanged. Simply type the password and press enter.
 curl https://storage.googleapis.com/ubyssey/dropbox/ubyssey.sql | mysql -u root ubyssey -p
 ```
-5. You should now be able to develop inside the Docker container and see your development version of the site on localhost:8000
+7. You should now be able to develop inside the Docker container and see your development version of the site on localhost:8000
 
 ## What these instructions will accomplish
 
@@ -60,7 +76,7 @@ Jason, one of our volunteers, found [a trick](https://github.com/docker/for-mac/
 
 For performance boost, there's a a popular tool called [docker-sync](http://docker-sync.io/).
 
-## Clone repositories
+## How to clone repositories
 
 We will now download `ubyssey.ca` and `dispatch` projects. This is the github link (https://github.com/ubyssey). 
 
@@ -71,51 +87,45 @@ git clone https://github.com/ubyssey/ubyssey.ca.git
 git clone https://github.com/ubyssey/dispatch.git
 ```
 
-```bash
-docker build . -t ubyssey/docker
+## Building Docker images from scratch
+To build a docker image from a Dockerfile, run in the directory containing the Dockerfile:
+```
+docker build . -t <dockerhub account>/<image name>:<tag>
+```
+Or:
+```
+docker build . -t <some other cloud hub>/<cloud account>/<image name>:<tag>
+```
+(The first works because Docker Hub will be assumed if the cloud hub isn’t specified)
+
+You can name the image whatever you like, but if you want to push it to the cloud, you should follow the above convention of <dockerhub account>/<image name>:<tag>
+
+In our project:
+* There will be a Dockerfile located in /ubyssey.ca/.
+* There is one in /dispatch/ too, but it layers Dispatch on top of the image built by the one in /ubyssey.ca/. To get this to work correctly, make sure you name the image built from the /ubyssey.ca/ Dockerfile the same name as is in the /dispatch/ Dockerfile’s FROM instruction
 
 
-If you see that there are no format in (http://localhost:8000/). You will need to set-up `ubyssey.ca/ubyssey/static/`
+## Building static files with Gulp
+If you see that there is no styling applied to the HTML in (http://localhost:8000/), you may need to set-up `ubyssey.ca/ubyssey/static/`
 
-### Static files
-
-**For Mac**
-Install the required Node packages with npm:
+In the Django docker container:
+1) Install the required Node packages with npm:
 
 ```bash
 cd ubyssey/static
 sudo npm install
 ```
 
-Install a global version of gulp \(if you don't have it already\) and build the static files:
+2) Install a global version of gulp \(if you don't have it already\) and build the static files:
 
 ```bash
 sudo npm install -g gulp
 gulp buildDev
 ```
 
-**For Windows**
-```bash
-cd ubyssey\static
-
-# Install node packages
-npm install
-```
-
-Install a global version of gulp \(if you don't have it already\) and build the static files:
-
-```
-# Install and run gulp
-npm install -g gulp
-gulp buildDev
-```
-
 _If you run into any error while installing npm or gulp, remove `ubyssey.ca/ubyssey/static/node_modules` by running `rm -rf node_modules` for **Mac**, `del node_modules` for **Windows**, and **redo** the installation._
 
-#### Note for Windows:
-docker-compose requires Docker to be running in the background. If docker-compose fails run Docker Toolbox first and try again*
-
-*Note: The database may fail to initialize. Simply re-run the above command and it should work.*
+## Docker instructions
 
 To see currently running docker containers, run the following command in a separate terminal.
 
@@ -123,11 +133,7 @@ To see currently running docker containers, run the following command in a separ
 docker ps
 ```
 
-**NOTE: Keep this terminal window with docker running open for following commands**
-
-### Setup the mysql container with a database
-
-**NOTE: Again, following commands should be done in a separate terminal window than before**
+## Setup the mysql container with a database
 
 Connect to the ubyssey_db docker container.
 
@@ -158,7 +164,7 @@ Your db container is up and running! Type `exit` to exit from this container
 
 _If you run into **operation errors**, drop the schemas in mysql database and repopulate it._
 
-### Perform django migrations on the docker container
+## Performing django migrations on the docker container
 
 Connect to the `ubyssey-dev` docker container
 
@@ -176,20 +182,20 @@ python manage.py migrate
 Once the database has been populated, and migrations have been applied,
 you should be able to proceed to `localhost:8000` and `localhost:8000/admin` to view ubyssey.ca and dispatch running from your ubyssey-dev docker container.
 
-### Media Files
+## Media Files
 
 Download and unzip the [sample media folder](https://storage.googleapis.com/ubyssey/dropbox/media.zip) to `ubyssey-dev/ubyssey.ca/media/`. This will make it so the images attached to the sample articles are viewable.
 
-#### Dispatch
+## Dispatch
 
 You can see Dispatch by going to `http://localhost:8000/admin/`
 
 Username is `volunteer@ubyssey.ca`, password is `volunteer`
 
 
-### Extra docker info
+## Extra docker info
 
-#### When in doubt, you may need to clear docker's cache and remove all docker images.
+### When in doubt, you may need to clear docker's cache and remove all docker images.
 
 ```bash
 # will remove docker cache and clear all images
