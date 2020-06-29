@@ -1,24 +1,23 @@
 # Automated Setup Instructions using Docker
 
-(WIP)
-## Quick Summary Version:
+(This is WIP. Please contact the current web devs if anything is confusing!)
+## Setup Basics:
 
-1. Install git, Docker, Visual Studio Code, and the Remote Development plugin for Visual Studio Code.
+1. Install [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git), [Docker](https://docs.docker.com/engine/), [Visual Studio Code](https://code.visualstudio.com/download), and the [Remote Development plugin for Visual Studio Code](https://code.visualstudio.com/docs/remote/remote-overview).
+
 2. In your preferred development folder:
 ```
 git clone https://github.com/ubyssey/ubyssey.ca.git/
 cd ubyssey.ca
 docker build . -t ubyssey/ubyssey.ca:latest
 
-## Or replace ubyssey/ubyssey.ca:latest with name of your choice formatted like: <dockerhub account>/<image name>:<tag>
+## Or replace ubyssey/ubyssey.ca:latest with name of your choice, formatted like so: <dockerhub account>/<image name>:<tag>
 ```
 
 4. In a directory of your choosing do:
 ```
-git clone https://github.com/<your account>./ubyssey-dev.git
+git clone https://github.com/<your account>/ubyssey-dev.git
 ```
-
-4.5.
 (If you changed the docker image's name, make sure to put <dockerhub account>/<image name>:<tag> in docker-compose.yml in /ubyssey-dev/.devcontainer)
 
 5. Use the Remote Development plugin to open the ubyssey-dev.git directory as a container
@@ -48,25 +47,25 @@ curl https://storage.googleapis.com/ubyssey/dropbox/ubyssey.sql | mysql -u root 
 ```
 7. You should now be able to develop inside the Docker container and see your development version of the site on localhost:8000
 
-## What these instructions will accomplish
+## What does setting up like this accomplish?
 
 Starting out as a new coder on an ongoing coding project is generally a difficult and time-consuming process. Even if your general computer knowledge is strong, knowledge of the specific tools involved may still be weak, and there’s almost inevitably a lot of learning to do. Furthermore, because you’re likely to have your own computer, we have little control over what you have installed, creating the risk of wasting time doing a lot of individualized troubleshooting.
 
-Because the Ubyssey depends so much upon volunteer work from students who are busy with school work, it is necessary coder **onboarding be made as fast as possible**, so volunteers do not get caught up on the “boring stuff” of simply getting a local development environment set up.  We therefore distribute **virutalized development machines** using containerization technology, specifically, Docker. This technology is often used in the tech industry alongside DevOps practices. The site and all its dependencies are packaged together in a “container”. Containers are a virtualization technology that can start up faster than traditional VMs, because many containers can share a single Linux kernel. The containerized website runs the same on any individual computer as it runs on the production environment.
+Because the Ubyssey depends so much upon volunteer work from students who are busy with school work, it is necessary coder **onboarding be made as fast as possible**, so volunteers do not get caught up on the “boring stuff” of simply getting a local development environment set up.  We therefore distribute **virutalized development machines** using containerization technology, specifically, Docker. This technology is often used in the tech industry alongside DevOps practices. The site and all its dependencies are packaged together in a “container”. Containers are a virtualization technology that can start up faster than traditional VMs, because many containers can share a single Linux kernel. The containerized website can run the same on any individual computer as it runs on the production environment.
 
-## What do I need?
+## Software
 
-### Visual Studio Code
-
-This sort of workflow is best done using [Visual Studio Code](https://code.visualstudio.com/), available for all major platforms, because Microsoft has developed a [Remote Development plugin](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack) designed to facilitate this.
-
-### Install Docker
+### Docker
 
 Install Docker (version `docker 19.03.x` is used in these instructions). Follow the instructions [from official Docker doc](https://docs.docker.com/). This will require you to create a docker account if you do not already have one.
 
 Afterward install docker-compose (these instructions use `docker-compose 1.25.x`) from [here](https://docs.docker.com/compose/install/) (If not already installed with docker).
 
-*If setting up on linux, all docker and docker-compose commands should be preceeded with `sudo`.* To enable docker without `sudo`, follow this [official post-installation doc](https://docs.docker.com/install/linux/linux-postinstall/).
+*(2020/06/29 - Possibly outdated note!) If setting up on linux, all docker and docker-compose commands should be preceeded with `sudo`.* To enable docker without `sudo`, follow this [official post-installation doc](https://docs.docker.com/install/linux/linux-postinstall/).
+
+### Visual Studio Code
+
+This sort of workflow is best done using [Visual Studio Code](https://code.visualstudio.com/), available for all major platforms, because Microsoft has developed a [Remote Development plugin](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack) designed to facilitate this.
 
 ### (Possibly outdated) Note for Mac
 
@@ -77,8 +76,7 @@ Jason, one of our volunteers, found [a trick](https://github.com/docker/for-mac/
 For performance boost, there's a a popular tool called [docker-sync](http://docker-sync.io/).
 
 ## How to clone repositories
-
-We will now download `ubyssey.ca` and `dispatch` projects. This is the github link (https://github.com/ubyssey). 
+This is the github link (https://github.com/ubyssey). 
 
 Clone the ubyssey.ca and the dispatch repositories to where-ever you prefer to work. This is typically done with the following terminal commands. If you forked the repository, use the URL of your fork. If you are working on a different branch, use the -b flag to specify which branch.
 
@@ -87,7 +85,7 @@ git clone https://github.com/ubyssey/ubyssey.ca.git
 git clone https://github.com/ubyssey/dispatch.git
 ```
 
-## Building Docker images from scratch
+## How to build Docker images from scratch
 To build a docker image from a Dockerfile, run in the directory containing the Dockerfile:
 ```
 docker build . -t <dockerhub account>/<image name>:<tag>
@@ -105,8 +103,10 @@ In our project:
 * There is one in /dispatch/ too, but it layers Dispatch on top of the image built by the one in /ubyssey.ca/. To get this to work correctly, make sure you name the image built from the /ubyssey.ca/ Dockerfile the same name as is in the /dispatch/ Dockerfile’s FROM instruction
 
 
-## Building static files with Gulp
-If you see that there is no styling applied to the HTML in (http://localhost:8000/), you may need to set-up `ubyssey.ca/ubyssey/static/`
+## How to build the static files with Gulp
+Building static files with gulp is a step in front-end development which is somewhat analogous to compiling.
+
+If you see that there is no CSS styling applied to the HTML in (http://localhost:8000/), you may need to set-up `ubyssey.ca/ubyssey/static/`
 
 In the Django docker container:
 1) Install the required Node packages with npm:
@@ -124,14 +124,6 @@ gulp buildDev
 ```
 
 _If you run into any error while installing npm or gulp, remove `ubyssey.ca/ubyssey/static/node_modules` by running `rm -rf node_modules` for **Mac**, `del node_modules` for **Windows**, and **redo** the installation._
-
-## Docker instructions
-
-To see currently running docker containers, run the following command in a separate terminal.
-
-```bash
-docker ps
-```
 
 ## Setup the mysql container with a database
 
@@ -186,14 +178,19 @@ you should be able to proceed to `localhost:8000` and `localhost:8000/admin` to 
 
 Download and unzip the [sample media folder](https://storage.googleapis.com/ubyssey/dropbox/media.zip) to `ubyssey-dev/ubyssey.ca/media/`. This will make it so the images attached to the sample articles are viewable.
 
-## Dispatch
+## Using Dispatch
 
 You can see Dispatch by going to `http://localhost:8000/admin/`
 
 Username is `volunteer@ubyssey.ca`, password is `volunteer`
 
-
 ## Extra docker info
+
+To see currently running docker containers, run the following command in a separate terminal.
+
+```bash
+docker ps
+```
 
 ### When in doubt, you may need to clear docker's cache and remove all docker images.
 
