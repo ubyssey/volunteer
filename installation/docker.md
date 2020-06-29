@@ -28,8 +28,9 @@ git clone https://github.com/<your account>/ubyssey-dev.git
 ```bash
 docker exec -t -i ubyssey_db bash
 ```
+This container may be named something other than ubyssey_db. If so, type `docker ps` to find what it is named. You can also connect to it without typing terminal commands if you download Docker Desktop.
 
-Setup the local database in the container.
+Once connected, setup the local database in the container.
 
 ```bash
 # password is ubyssey
