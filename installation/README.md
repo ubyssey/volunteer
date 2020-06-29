@@ -4,11 +4,11 @@ As a first step, create a GitHub account and clone our repositores:
 
 * [**Forking GitHub Repository**](/installation/forking-the-repo.md)
 
-Before you can start writing code, you'll have to setup your local development environment. To do so, follow the instructions below:
+Before you can start writing code, set up your local development environment. Docker is commonly-used virtualization software that will let you _automatically_ set up a development environment with all the necessary dependencies isolated from the rest of your system.
 
-* [**Docker Instructions**](/installation/docker.md) (**Recommened**)
-* [**Mac Instructions**](/installation/mac.md)
-* [**Windows Instructions**](/installation/windows.md)
+* [**Docker (automatic) instructions**](/installation/docker.md) (**Recommened**)
+* [**Mac manual set-up instructions**](/installation/mac.md)
+* [**Windows manual set-up instructions**](/installation/windows.md)
 
 Instructions for post-installation
 
