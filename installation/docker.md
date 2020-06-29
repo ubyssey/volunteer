@@ -1,6 +1,7 @@
 # Automated Setup Instructions using Docker
 
-(This is WIP. Please contact the current web devs if anything is confusing!)
+(This is a Work In Progress. Please contact the current web devs if anything is confusing!)
+
 ## Setup Basics:
 
 1. Install [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git), [Docker](https://docs.docker.com/engine/), [Visual Studio Code](https://code.visualstudio.com/download), and the [Remote Development plugin for Visual Studio Code](https://code.visualstudio.com/docs/remote/remote-overview).
@@ -15,14 +16,14 @@ docker build . -t ubyssey/ubyssey.ca:latest
 ## formatted like so: <dockerhub account>/<image name>:<tag>
 ```
 
-4. In a directory of your choosing do:
+3. Again, in your preferred development folder:
 ```
 git clone https://github.com/<your account>/ubyssey-dev.git
 ```
 (If you changed the docker image's name, make sure to put `<dockerhub account>/<image name>:<tag>` in docker-compose.yml in `/ubyssey-dev/.devcontainer`)
 
-5. Use the Remote Development plugin to open the ubyssey-dev.git directory as a container
-6. If the database container isn't set up yet, connect to it:
+4. Use the Remote Development plugin to open the ubyssey-dev.git directory as a container
+5. If the database container isn't set up yet, connect to it:
 
 ```bash
 docker exec -t -i ubyssey_db bash
@@ -46,7 +47,7 @@ apt-get install curl
 # You may not be prompted for the password, and the curl operation may appear to have hanged. Simply type the password and press enter.
 curl https://storage.googleapis.com/ubyssey/dropbox/ubyssey.sql | mysql -u root ubyssey -p
 ```
-7. You should now be able to develop inside the Docker container and see your development version of the site on localhost:8000
+6. You should now be able to develop inside the Docker container and see your development version of the site on localhost:8000
 
 ## What does setting up like this accomplish?
 
