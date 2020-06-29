@@ -2,9 +2,13 @@
 
 According to GitHub's [Official Forking Tutorial](https://help.github.com/articles/fork-a-repo/), "A fork is a copy of a repository. Forking a repository allows you to freely experiment with changes without affecting the original project."
 
-In git, forks are philosophically different from branches in that branches keep changes out of the project's main branch _temporarily_ as they are worked on, until it is time to merge. Forks, meanwhile, are _new_ projects, which will not necessarily continue to have anything to do with the original project. While it may be possible to merge changes in a fork back to the original project, forks, unlike branches, are not created with the intention of doing so. [(see this stackexchange discussion for the fork-branch distinction)](https://softwareengineering.stackexchange.com/questions/237433/git-branch-or-fork#:~:text=In%20git%2C%20branch%20is%20a,out%20of%20the%20main%20project)
+In git, *forks* are philosophically different from *branches*.
 
-It may be useful, for example, to fork the [example development tools](https://github.com/ubyssey/ubyssey-dev) we provide to your own github account so you can version control the configuration settings you like to use when programming for the site.
+Branches keep changes out of the project's main branch _temporarily_ as they are worked on, until it is time to merge.
+
+Forks, meanwhile, are _new_ projects, which will not necessarily continue to have anything to do with the original project. While it may be possible to merge changes in a fork back to the original project, forks, unlike branches, are not created with the intention of doing so. [(see this stackexchange discussion for the fork-branch distinction)](https://softwareengineering.stackexchange.com/questions/237433/git-branch-or-fork#:~:text=In%20git%2C%20branch%20is%20a,out%20of%20the%20main%20project)
+
+(It may be useful, for example, to fork the [example development tools](https://github.com/ubyssey/ubyssey-dev) we provide to your own github account, so you can version control the configuration settings you like to use when programming for the site.)
 
 In this tutorial, you will fork the [ubyssey.ca project](https://github.com/ubyssey/ubyssey.ca)
 
