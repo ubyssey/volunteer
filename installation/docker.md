@@ -1,6 +1,36 @@
-# Automated Setup Instructions, using Docker
+# Automated Setup Instructions using Docker
 
 (WIP)
+## Quick Summary Version:
+
+1. Install Docker, Visual Studio Code, and the Remote Development plugin for Visual Studio Code.
+2. Clone ubyssey.ca.git, dispatch.git, ubyssey-dev.git and build the corresponding Docker images
+3. Use the Remote Development plugin to open the ubyssey-dev.git directory as a container
+4. If the database container isn't set up yet, connect to it:
+
+```bash
+docker exec -t -i ubyssey_db bash
+```
+
+Setup the local database in the container.
+
+```bash
+# password is ubyssey
+mysql -u root -p
+create database ubyssey;
+quit;
+```
+
+Populate the database.
+
+```bash
+apt update
+apt-get install curl
+# password is ubyssey.
+# You may not be prompted for the password, and the curl operation may appear to have hanged. Simply type the password and press enter.
+curl https://storage.googleapis.com/ubyssey/dropbox/ubyssey.sql | mysql -u root ubyssey -p
+```
+5. You should now be able to develop inside the Docker container and see your development version of the site on localhost:8000
 
 ## What these instructions will accomplish
 
@@ -14,46 +44,13 @@ Because the Ubyssey depends so much upon volunteer work from students who are bu
 
 This sort of workflow is best done using [Visual Studio Code](https://code.visualstudio.com/), available for all major platforms, because Microsoft has developed a [Remote Development plugin](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack) designed to facilitate this.
 
-### Install Python
-
-On Mac and Linux, python & pip come with the system.
-For windows, you need to download them manually.
-[Download Python 3.7](https://www.python.org/downloads/release/python-376/) then [install pip](https://pip.pypa.io/en/stable/installing/) by following the links
-
-*Note: you may need to add python AND pip to your path, follow the instructions [here](https://stackoverflow.com/questions/3701646/how-to-add-to-the-pythonpath-in-windows).*
-
 ### Install Docker
 
-Install `docker 18.06.x` Follow the instructions [from official Docker doc](https://docs.docker.com/). This will require you to create a docker account if you do not already have one.
+Install Docker (version `docker 19.03.x` is used in these instructions). Follow the instructions [from official Docker doc](https://docs.docker.com/). This will require you to create a docker account if you do not already have one.
 
-Afterward install `docker-compose 1.10.x` from [here](https://docs.docker.com/compose/install/) (If not already installed with docker).
+Afterward install docker-compose (these instructions use `docker-compose 1.25.x`) from [here](https://docs.docker.com/compose/install/) (If not already installed with docker).
 
 *If setting up on linux, all docker and docker-compose commands should be preceeded with `sudo`.* To enable docker without `sudo`, follow this [official post-installation doc](https://docs.docker.com/install/linux/linux-postinstall/).
-
-## Set up development folder
-
-Before we proceed, we recommend creating a dedicated directory (folder) for Ubyssey related projects. In this tutorial we will refer to this dir as `ubyssey-dev` (you can use any other name that makes sense to you). Let's create the directory at the location you want the code to live in:
-
-*Note: copy and paste **all** commands in terminal:*
-
-### How to find the terminal:
-Win: Click on Start btn > Type "cmd" > Click on "Command Prompt"
-Mac: Open Spotlight search or Applications folder > Type "terminal")
-
-```bash
-# Install virtualenv if you don't have it
-pip install virtualenv
-
-# Create a new virtual environment
-cd ~
-virtualenv ubyssey-dev
-cd ubyssey-dev
-
-# Activate the virtualenv
-source bin/activate
-```
-
-We recommend working inside a virtualenv, but it's not required.
 
 ### (Possibly outdated) Note for Mac
 
@@ -67,32 +64,16 @@ For performance boost, there's a a popular tool called [docker-sync](http://dock
 
 We will now download `ubyssey.ca` and `dispatch` projects. This is the github link (https://github.com/ubyssey). 
 
+Clone the ubyssey.ca and the dispatch repositories to where-ever you prefer to work. This is typically done with the following terminal commands. If you forked the repository, use the URL of your fork. If you are working on a different branch, use the -b flag to specify which branch.
+
 ```bash
-# Inside ubyssey-dev dir
-# Change urls to your cloned repo
 git clone https://github.com/ubyssey/ubyssey.ca.git
 git clone https://github.com/ubyssey/dispatch.git
 ```
 
-We have stored the config files for Docker in `local-dev`dir inside `ubyssey.ca` project. To make enable Docker we first move the files to appropriate location:
-
 ```bash
-# cd into your Ubyssey project dir
-cd ~/ubyssey-dev
-cp -r ./ubyssey.ca/local-dev/. .
-```
+docker build . -t ubyssey/docker
 
-We now need to set the local settings for django.
-
-```bash
-cp -r ubyssey.ca/_settings/settings-local.py ubyssey.ca/ubyssey/settings.py
-```
-
-Build and run the docker containers. This command can take several minutes, so be patient.
-
-```bash
-docker-compose up
-```
 
 If you see that there are no format in (http://localhost:8000/). You will need to set-up `ubyssey.ca/ubyssey/static/`
 
