@@ -2,7 +2,7 @@
 
 (This is a Work In Progress. Please contact the current web devs if anything is confusing!)
 
-## Setup Basics:
+## Setup Basics
 
 1. Install [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git), [Docker](https://docs.docker.com/engine/), [Visual Studio Code](https://code.visualstudio.com/download), and the [Remote Development plugin for Visual Studio Code](https://code.visualstudio.com/docs/remote/remote-overview).
 
