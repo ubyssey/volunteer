@@ -12,13 +12,13 @@ git clone https://github.com/ubyssey/ubyssey.ca.git
 cd ubyssey.ca
 docker build . -t ubyssey/ubyssey.ca:latest
 ```
-(Or replace ubyssey/ubyssey.ca:latest with name of your choice)
+&nbsp;<span style="font-size:0.9em;">*(Or replace ubyssey/ubyssey.ca:latest with name of your choice)*</span>
 
 3. Again, in your preferred directory, clone either the below repo, or else clone a fork you made of it:
 ```
 git clone https://github.com/ubyssey/ubyssey-dev.git
 ```
-(If you changed the docker image's name, make sure to also change it in docker-compose.yml in /ubyssey-dev/.devcontainer/)
+&nbsp;<span style="font-size:0.9em;">*(If you changed the docker image's name, make sure to also change it in docker-compose.yml in /ubyssey-dev/.devcontainer/)*</span>
 
 4. Use the Remote Development plugin to open the ubyssey-dev.git directory as a container
 5. If the database container isn't set up yet, connect to it:
@@ -46,7 +46,7 @@ apt-get install curl
 # You may not be prompted for the password, and the curl operation may appear to have hanged. Simply type the password and press enter.
 curl https://storage.googleapis.com/ubyssey/dropbox/ubyssey.sql | mysql -u root ubyssey -p
 ```
-6. You should now be able to develop inside the Docker container and see your development version of the site on localhost:8000
+6. You should now be able to develop inside the Docker container and see your development version of the site on [localhost:8000](localhost:8000)
 
 ## What does setting up like this accomplish?
 
@@ -62,7 +62,7 @@ Install Docker (version `docker 19.03.x` is used in these instructions). Follow 
 
 Afterward install docker-compose (these instructions use `docker-compose 1.25.x`) from [here](https://docs.docker.com/compose/install/) (If not already installed with docker).
 
-*(2020/06/29 - Possibly outdated note!) If setting up on linux, all docker and docker-compose commands should be preceeded with `sudo`.* To enable docker without `sudo`, follow this [official post-installation doc](https://docs.docker.com/install/linux/linux-postinstall/).
+&nbsp;<span style="font-size:0.9em;">*(2020/06/29 - Possibly outdated note!) If setting up on linux, all docker and docker-compose commands should be preceeded with `sudo`.* To enable docker without `sudo`, follow this [official post-installation doc](https://docs.docker.com/install/linux/linux-postinstall/).*</span>
 
 ### Visual Studio Code
 
@@ -97,13 +97,13 @@ Or:
 ```
 docker build . -t <some other cloud hub>/<cloud account>/<image name>:<tag>
 ```
-(The first works because Docker Hub will be assumed if the cloud hub isn’t specified)
+&nbsp;<span style="font-size:0.9em;">*(The first works because Docker Hub will be assumed if the cloud hub isn’t specified)*</span>
 
-You can name the image whatever you like, but if you want to push it to the cloud, you should follow the above convention of <dockerhub account>/<image name>:<tag>
+You can name the ***image*** whatever you like, but if you want to push it to the cloud, you should follow the above convention of  **\<dockerhub account>/\<image name>:\<tag>**
 
 In our project:
-* There will be a Dockerfile located in /ubyssey.ca/.
-* There is one in /dispatch/ too, but it layers Dispatch on top of the image built by the one in /ubyssey.ca/. To get this to work correctly, make sure you name the image built from the /ubyssey.ca/ Dockerfile the same name as is in the /dispatch/ Dockerfile’s FROM instruction
+* A Dockerfile is located in /ubyssey.ca/.
+* There is also one in /dispatch/ too, but it layers Dispatch on top of the image built by the one in /ubyssey.ca/. To get this to work correctly, **make sure you name the image built from the /ubyssey.ca/ Dockerfile the same name as is in the /dispatch/** Dockerfile’s FROM instruction
 
 
 ### How to build static files with Gulp
@@ -111,22 +111,22 @@ Building static files with gulp is a step in front-end development which is some
 
 If you see that there is no CSS styling applied to the HTML in (http://localhost:8000/), you may need to set-up `ubyssey.ca/ubyssey/static/`
 
-In the Django docker container:
+In the Docker container:
 1) Install the required Node packages with npm:
 
 ```bash
-cd ubyssey/static
-sudo npm install
+cd /workspaces/ubyssey.ca/ubyssey/static/
+npm install
 ```
 
 2) Install a global version of gulp \(if you don't have it already\) and build the static files:
 
 ```bash
-sudo npm install -g gulp
+npm install -g gulp
 gulp buildDev
 ```
 
-_If you run into any error while installing npm or gulp, remove `ubyssey.ca/ubyssey/static/node_modules` by running `rm -rf node_modules` for **Mac**, `del node_modules` for **Windows**, and **redo** the installation._
+_If you run into any error while installing npm or gulp, remove `ubyssey.ca/ubyssey/static/node_modules` by running `rm -rf node_modules`
 
 ### How to setup the mysql container with a database
 
