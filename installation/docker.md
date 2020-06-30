@@ -11,10 +11,8 @@
 git clone https://github.com/ubyssey/ubyssey.ca.git/
 cd ubyssey.ca
 docker build . -t ubyssey/ubyssey.ca:latest
-
-## Or replace ubyssey/ubyssey.ca:latest with name of your choice
-## formatted like so: <dockerhub account>/<image name>:<tag>
 ```
+Or replace ubyssey/ubyssey.ca:latest with name of your choice formatted like so: <dockerhub account>/<image name>:<tag>
 
 3. Again, in your preferred development folder:
 ```
