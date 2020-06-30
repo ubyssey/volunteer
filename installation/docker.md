@@ -8,7 +8,7 @@
 
 2. In your preferred development folder:
 ```
-git clone https://github.com/ubyssey/ubyssey.ca.git/
+git clone https://github.com/ubyssey/ubyssey.ca.git
 cd ubyssey.ca
 docker build . -t ubyssey/ubyssey.ca:latest
 ```
@@ -18,7 +18,7 @@ docker build . -t ubyssey/ubyssey.ca:latest
 ```
 git clone https://github.com/ubyssey/ubyssey-dev.git
 ```
-(If you changed the docker image's name, make sure to put it in docker-compose.yml in /ubyssey-dev/.devcontainer)
+(If you changed the docker image's name, make sure to also change it in docker-compose.yml in /ubyssey-dev/.devcontainer/)
 
 4. Use the Remote Development plugin to open the ubyssey-dev.git directory as a container
 5. If the database container isn't set up yet, connect to it:
