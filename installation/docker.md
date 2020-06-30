@@ -76,7 +76,9 @@ Jason, one of our volunteers, found [a trick](https://github.com/docker/for-mac/
 
 For performance boost, there's a a popular tool called [docker-sync](http://docker-sync.io/).
 
-## How to clone repositories
+## Various How-Tos
+
+### How to clone repositories
 This is the github link (https://github.com/ubyssey). 
 
 Clone the ubyssey.ca and the dispatch repositories to where-ever you prefer to work. This is typically done with the following terminal commands. If you forked the repository, use the URL of your fork. If you are working on a different branch, use the -b flag to specify which branch.
@@ -86,7 +88,7 @@ git clone https://github.com/ubyssey/ubyssey.ca.git
 git clone https://github.com/ubyssey/dispatch.git
 ```
 
-## How to build Docker images from scratch
+### How to build Docker images from scratch
 To build a docker image from a Dockerfile, run in the directory containing the Dockerfile:
 ```
 docker build . -t <dockerhub account>/<image name>:<tag>
@@ -104,7 +106,7 @@ In our project:
 * There is one in /dispatch/ too, but it layers Dispatch on top of the image built by the one in /ubyssey.ca/. To get this to work correctly, make sure you name the image built from the /ubyssey.ca/ Dockerfile the same name as is in the /dispatch/ Dockerfile’s FROM instruction
 
 
-## How to build the static files with Gulp
+### How to build static files with Gulp
 Building static files with gulp is a step in front-end development which is somewhat analogous to compiling.
 
 If you see that there is no CSS styling applied to the HTML in (http://localhost:8000/), you may need to set-up `ubyssey.ca/ubyssey/static/`
@@ -126,7 +128,7 @@ gulp buildDev
 
 _If you run into any error while installing npm or gulp, remove `ubyssey.ca/ubyssey/static/node_modules` by running `rm -rf node_modules` for **Mac**, `del node_modules` for **Windows**, and **redo** the installation._
 
-## Setup the mysql container with a database
+### How to setup the mysql container with a database
 
 Connect to the ubyssey_db docker container.
 
