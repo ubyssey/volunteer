@@ -12,17 +12,13 @@ git clone https://github.com/ubyssey/ubyssey.ca.git/
 cd ubyssey.ca
 docker build . -t ubyssey/ubyssey.ca:latest
 ```
-Or replace ubyssey/ubyssey.ca:latest with name of your choice formatted like so: <dockerhub account>/<image name>:<tag>
+(Or replace ubyssey/ubyssey.ca:latest with name of your choice)
 
-3. Again, in your preferred development folder:
+3. Again, in your preferred directory, clone either the below repo, or else clone a fork you made of it:
 ```
-git clone https://github.com/<your account>/ubyssey-dev.git
+git clone https://github.com/ubyssey/ubyssey-dev.git
 ```
-(If you changed the docker image's name, make sure to put
-```
-<dockerhub account>/<image name>:<tag>
-```
-in docker-compose.yml in /ubyssey-dev/.devcontainer)
+(If you changed the docker image's name, make sure to put it in docker-compose.yml in /ubyssey-dev/.devcontainer)
 
 4. Use the Remote Development plugin to open the ubyssey-dev.git directory as a container
 5. If the database container isn't set up yet, connect to it:
