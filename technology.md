@@ -8,7 +8,7 @@ _The Ubyssey_ is committed \(no pun intended\) to open source development, which
 
 #### Slack
 
-We do all of our communication via [Slack](https://slack.com/)! To get the invite to `#web-volunteers` channel send an email with your full name to `atsushi@ubyssey.ca`!
+We do all of our communication via [Slack](https://slack.com/)! To get the invite to `#web-volunteers` channel send an email with your full name to our web developers at [Contact Us](https://www.ubyssey.ca/contact/)!
 
 # Our Projects {#our-projects}
 
@@ -16,7 +16,7 @@ We do all of our communication via [Slack](https://slack.com/)! To get the invit
 
 ### Dispatch {#dispatch}
 
-[Dispatch](https://github.com/ubyssey/dispatch) is our custom-built publishing platform that powers [ubyssey.ca](https://www.ubyssey.ca/). It was created as a replacement for WordPress and was built with flexibility and ease-of-use in mind. Developed as an open-source project, Dispatch aims to provide a set of tools that make it easier for journalists to produce high-quality digital content. We've been using it in production for two years, and it's almost at a stable \(1.0\) release.
+[Dispatch](https://github.com/ubyssey/dispatch) is our custom-built publishing platform that powers [ubyssey.ca](https://www.ubyssey.ca/). It was created as a replacement for WordPress and was built with flexibility and ease-of-use in mind. Developed as an open-source project, Dispatch aims to provide a set of tools that make it easier for journalists to produce high-quality digital content. We've been using it in production for many years.
 
 **Tech stack: **Python \(Django\), JavaScript \(React/redux\), HTML/CSS
 
@@ -32,7 +32,7 @@ We use a separate repository to store the custom code that powers our website. T
 
 **Repository: **[https://github.com/ubyssey/ubyssey.ca](https://github.com/ubyssey/ubyssey.ca)
 
-### Salary Database {#salary-database}
+<!-- ### Salary Database {#salary-database}
 
 [The UBC Salary List](http://www.ubyssey.ca/salaries/) holds the salary and expenses of most UBC employees earning at least $75k/year. It was built as a simple microsite, and all of its code lives in a separate repository.
 
@@ -46,5 +46,5 @@ Our newest project aims to deliver the news in a new way. We plan to build a cha
 
 **Repository:** [https://github.com/ubyssey/chatbot](https://github.com/ubyssey/chatbot)
 
-**Wiki:** [https://github.com/ubyssey/chatbot/wiki](https://github.com/ubyssey/chatbot/wiki)
+**Wiki:** [https://github.com/ubyssey/chatbot/wiki](https://github.com/ubyssey/chatbot/wiki) -->
 

@@ -35,21 +35,21 @@ From the ubyssey.ca repo, run the "migrate" command to bring your database schem
 python3 manage.py migrate
 ```
 
-Use `yarn` to run the Dispatch Webpack build:
+Use `npm` to run the Dispatch Webpack build:
 
 ```bash
 # Front-end manager app
 cd dispatch/dispatch/static/manager
 
 # Install dependencies
-yarn setup
+npm install
 
 # Run Webpack in watch mode
-yarn start
+npm run watch
 ```
 
 
-### Testing
+<!-- ### Testing
 
 ```bash
 # Link the tests to local files instead of package files
@@ -61,6 +61,6 @@ dispatch-admin test
 
 # Generate coverage report
 dispatch-admin coverage
-```
+``` -->
 
 

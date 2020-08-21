@@ -1,12 +1,13 @@
 # FAQ
 
 Table of contents:
-- [CSS Not loading](#css-not-loading)
-- [Debugging Django w/ Docker](#debugging-django-with-docker)
-- [Django Migrations w/ Docker](#django-migrations-with-docker)
-- [node-sass binding error](#node-sass-binding-error)
-- [Admin not loading](#admin-not-loading)
-- [How to access Docker MySQL console](#how-to-access-docker-mysql-console)
+- [FAQ](#faq)
+    - [CSS not loading](#css-not-loading)
+    - [Debugging Django with Docker](#debugging-django-with-docker)
+    - [Django Migrations with Docker](#django-migrations-with-docker)
+    - [Node-sass binding error](#node-sass-binding-error)
+    - [Admin not loading](#admin-not-loading)
+    - [How to access Docker MySQL console](#how-to-access-docker-mysql-console)
 
 ### CSS not loading
 
@@ -16,9 +17,9 @@ There are often a case when CSS is not being loaded properly on development. Why
 
 ![404_get](https://user-images.githubusercontent.com/9669739/47315630-03608e80-d5fa-11e8-9422-ea8263a7420b.png)
 
-This is happening due to version difference between **`VERSION` variable in `settings.py`** and **`version` field in `package.json`**. We compile our static asset with [Gulp](https://gulpjs.com/), and it looks at `version` field in `package.json` as defined in [this line from gulpfile.js](https://github.com/ubyssey/ubyssey.ca/blob/eb4b406b462fdee5b36790fc22642f6e97f418ec/ubyssey/static/gulpfile.js#L17). However, Django looks at `VERSION` variable in its `settings.py` file.
+This is happening due to your local static file not built correctly.
 
-To fix this issue, make sure [VERSION variable here](https://github.com/ubyssey/ubyssey.ca/blob/develop/_settings/settings-local.py#L10) and [version field here](https://github.com/ubyssey/ubyssey.ca/blob/develop/ubyssey/static/package.json#L3) are matching in your machine. Also check the version of ubyssey.ca/ubyssey/settings.py in your machine. This file is only for your local environment and does not get updated from remote repository. 
+To fix this issue, try to run `gulp buildDev` again in your **static_src** folder and clear your browser's cache!
 
 ### Debugging Django with Docker
 
