@@ -6,5 +6,5 @@ These meetings are a chance to get everybody in the same room to chat about assi
 
 ### Slack
 
-We do all of our communication via [Slack](https://slack.com/)! Web volunteers will be available to answer any questions as they arise. To get the invite to `#web-volunteers` channel send an email with your full name to `webmaster@ubyssey.ca`.
+We do all of our communication via [Slack](https://slack.com/)! Web volunteers will be available to answer any questions as they arise. To get the invite to `#web-volunteers` channel send an email with your full name to our web developers at [Contact Us](https://www.ubyssey.ca/contact/)!
 
