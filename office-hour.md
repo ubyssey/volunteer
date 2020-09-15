@@ -1,8 +1,10 @@
 ## Volunteer Office Hours
 
-Office hour meetings for the September 2020- December 2020 semester will take place at 11AM - 12:30PM Tuesday and Thursdays.
+Office hour meetings for the September 2020- December 2020 semester will take place at 11AM - 1PM Tuesday and Thursdays.
 
-These meetings are a chance to get everybody in the same room to chat about assignments, ongoing projects, and to allow the web developer or anybody else to answer questions about technical problems.
+The meeting proper will likely be the first hour with the second hour mostly existing so we can help students out with tech stuff! Feel free to drop in (or leave early).
+
+These meetings are a chance to get everybody in the same room (proverbially) to chat about assignments, ongoing projects, and to allow the web developer or anybody else to answer questions about technical problems.
 
 ### Slack
 
