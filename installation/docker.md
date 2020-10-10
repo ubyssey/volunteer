@@ -20,8 +20,12 @@ git clone https://github.com/ubyssey/ubyssey-dev.git
 ```
 &nbsp;<span style="font-size:0.9em;">*(If you changed the docker image's name, make sure to also change it in docker-compose.yml in /ubyssey-dev/.devcontainer/)*</span>
 
-4. Use the Remote Development plugin to open the ubyssey-dev.git directory as a container
-5. If the database container isn't set up yet, connect to it:
+4. Set up a persistent Docker volume. (This is used to persist the database contents between Docker containers, should you ever need to delete yours)
+```
+docker volume create --name=ubyssey_db_volume
+```
+5. Use the Remote Development plugin to open the ubyssey-dev.git directory as a container
+6. If the database container isn't set up yet, connect to it:
 
 ```bash
 docker exec -t -i ubyssey_db bash
