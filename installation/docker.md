@@ -24,13 +24,15 @@ git clone https://github.com/ubyssey/ubyssey-dev.git
 ```
 docker volume create --name=ubyssey_db_volume
 ```
-5. Use the Remote Development plugin to open the ubyssey-dev.git directory as a container
+5. Use the [Remote Development plugin](https://code.visualstudio.com/docs/remote/remote-overview) to open the ubyssey-dev.git directory as a container
 6. If the database container isn't set up yet, connect to it:
+
+   This container may be named something other than ubyssey_db. If so, type `docker ps` to find what it is named. You can also connect to it without typing terminal commands if you download Docker Desktop.
 
 ```bash
 docker exec -t -i ubyssey_db bash
 ```
-This container may be named something other than ubyssey_db. If so, type `docker ps` to find what it is named. You can also connect to it without typing terminal commands if you download Docker Desktop.
+
 
 Once connected, setup the local database in the container.
 
@@ -50,7 +52,15 @@ apt-get install curl
 # You may not be prompted for the password, and the curl operation may appear to have hanged. Simply type the password and press enter.
 curl https://storage.googleapis.com/ubyssey/dropbox/ubyssey.sql | mysql -u root ubyssey -p
 ```
-6. You should now be able to develop inside the Docker container and see your development version of the site on [localhost:8000](localhost:8000)
+You should now be able to develop inside the Docker container and see your development version of the site on [localhost:8000](localhost:8000)
+
+**Manual Server Startup:**
+
+```bash
+#change to the directory your project is located in
+cd ubyssey.ca
+python manage.py runserver
+```
 
 ## What does setting up like this accomplish?
 
