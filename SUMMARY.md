@@ -8,8 +8,10 @@
   <!-- * [Running the server](installation/running-the-server.md) -->
 * [Getting Started](getting-started/README.md)
   * [Your first task](getting-started/your-first-task.md)
-  <!-- * [How to use Git](getting-started/how-to-use-git.md) -->
+  * [How to use Git](getting-started/how-to-use-git.md)
   * [Intro to Backend Dev](getting-started/backend.md)
+* [Getting Started](getting-started/README.md)
+
 * [Resources](resources.md)
 * [FAQ](faq/README.md)
 * [Office Hour](office-hour.md)

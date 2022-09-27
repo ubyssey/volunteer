@@ -2,11 +2,32 @@
 
 (This is a Work In Progress. Please contact the current web devs if anything is confusing!)
 
-## Setup Basics
+&nbsp;
+
+# Contents
+
+* Setup basics <!-- (**Recommened**) -->
+* Starting up the server
+* What does setting up like this accomplish?
+* Software
+  * Docker
+  * Visual Studio Code
+* Various How-to's
+  * How to clone repositories
+  * How to build Docker images from scratch
+  * How to build static files with Gulp
+  * How to setup the mysql container with a database
+* Performing django migrations on the docker container
+* Media files
+* Extra Docker info
+
+&nbsp;
+
+# Setup basics
 
 1. Install [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git), [Docker](https://docs.docker.com/engine/), [Visual Studio Code](https://code.visualstudio.com/download), and the [Remote Development plugin for Visual Studio Code](https://code.visualstudio.com/docs/remote/remote-overview).
 
-2. In your preferred development folder:
+2. In Terminal/Command Line, within your preferred development folder:
 ```
 git clone https://github.com/ubyssey/ubyssey.ca.git
 cd ubyssey.ca
@@ -34,7 +55,7 @@ docker exec -t -i ubyssey_db bash
 ```
 
 
-Once connected, setup the local database in the container.
+7. Once connected, setup the local database in the container.
 
 ```bash
 # password is ubyssey
@@ -43,7 +64,9 @@ create database ubyssey;
 quit;
 ```
 
-Populate the database.
+8. Populate the database.
+
+&nbsp;<span style="font-size:0.9em;">*(IMPORTANT: apt update may be unaccessible to our project at the moment. You are most likely able to skip the first two lines of the below commands and head straight to the third/last curl command)*</span>
 
 ```bash
 apt update
@@ -52,9 +75,12 @@ apt-get install curl
 # You may not be prompted for the password, and the curl operation may appear to have hanged. Simply type the password and press enter.
 curl https://storage.googleapis.com/ubyssey/dropbox/ubyssey.sql | mysql -u root ubyssey -p
 ```
-You should now be able to develop inside the Docker container and see your development version of the site on [localhost:8000](localhost:8000)
 
-**Manual Server Startup:**
+&nbsp;
+
+# Starting up the server:
+
+In the Terminal of VSCode, run the local server:
 
 ```bash
 #change to the directory your project is located in
@@ -62,13 +88,17 @@ cd ubyssey.ca
 python manage.py runserver
 ```
 
-## What does setting up like this accomplish?
+You should now be able to develop inside the Docker container and see your development version of the site on [localhost:8000](localhost:8000)
+
+&nbsp;
+
+# What does setting up like this accomplish?
 
 Starting out as a new coder on an ongoing coding project is generally a difficult and time-consuming process. Even if your general computer knowledge is strong, knowledge of the specific tools involved may still be weak, and there’s almost inevitably a lot of learning to do. Furthermore, because you’re likely to have your own computer, we have little control over what you have installed, creating the risk of wasting time doing a lot of individualized troubleshooting.
 
 Because the Ubyssey depends so much upon volunteer work from students who are busy with school work, it is necessary coder **onboarding be made as fast as possible**, so volunteers do not get caught up on the “boring stuff” of simply getting a local development environment set up.  We therefore distribute **virutalized development machines** using containerization technology, specifically, Docker. This technology is often used in the tech industry alongside DevOps practices. The site and all its dependencies are packaged together in a “container”. Containers are a virtualization technology that can start up faster than traditional VMs, because many containers can share a single Linux kernel. The containerized website can run the same on any individual computer as it runs on the production environment.
 
-## Software
+# Software
 
 ### Docker
 
@@ -90,9 +120,11 @@ Jason, one of our volunteers, found [a trick](https://github.com/docker/for-mac/
 
 For performance boost, there's a a popular tool called [docker-sync](http://docker-sync.io/).
 
-## Various How-Tos
+&nbsp;
 
-### How to clone repositories
+# Various How-Tos
+
+## How to clone repositories
 This is the github link (https://github.com/ubyssey). 
 
 Clone the ubyssey.ca and the dispatch repositories to where-ever you prefer to work. This is typically done with the following terminal commands. If you forked the repository, use the URL of your fork. If you are working on a different branch, use the -b flag to specify which branch.
@@ -102,7 +134,7 @@ git clone https://github.com/ubyssey/ubyssey.ca.git
 git clone https://github.com/ubyssey/dispatch.git
 ```
 
-### How to build Docker images from scratch
+## How to build Docker images from scratch
 To build a docker image from a Dockerfile, run in the directory containing the Dockerfile:
 ```
 docker build . -t <dockerhub account>/<image name>:<tag>
@@ -120,7 +152,7 @@ In our project:
 * There is also one in /dispatch/ too, but it layers Dispatch on top of the image built by the one in /ubyssey.ca/. To get this to work correctly, **make sure you name the image built from the /ubyssey.ca/ Dockerfile the same name as is in the /dispatch/** Dockerfile’s FROM instruction
 
 
-### How to build static files with Gulp
+## How to build static files with Gulp
 Building static files with gulp is a step in front-end development which is somewhat analogous to compiling.
 
 If you see that there is no CSS styling applied to the HTML in (http://localhost:8000/), you may need to set-up `ubyssey.ca/ubyssey/static/`
@@ -142,7 +174,7 @@ gulp buildDev
 
 _If you run into any error while installing npm or gulp, remove `ubyssey.ca/ubyssey/static/node_modules` by running `rm -rf node_modules`
 
-### How to setup the mysql container with a database
+## How to setup the mysql container with a database
 
 Connect to the ubyssey_db docker container.
 
@@ -173,7 +205,9 @@ Your db container is up and running! Type `exit` to exit from this container
 
 _If you run into **operation errors**, drop the schemas in mysql database and repopulate it._
 
-## Performing django migrations on the docker container
+&nbsp;
+
+# Performing django migrations on the docker container
 
 Connect to the `ubyssey-dev` docker container
 
@@ -191,17 +225,21 @@ python manage.py migrate
 Once the database has been populated, and migrations have been applied,
 you should be able to proceed to `localhost:8000` and `localhost:8000/admin` to view ubyssey.ca and dispatch running from your ubyssey-dev docker container.
 
-## Media Files
+&nbsp;
+
+# Media Files
 
 Download and unzip the [sample media folder](https://storage.googleapis.com/ubyssey/dropbox/media.zip) to `ubyssey-dev/ubyssey.ca/media/`. This will make it so the images attached to the sample articles are viewable.
 
-## Using Dispatch
+&nbsp;
+
+# Using Dispatch
 
 You can see Dispatch by going to `http://localhost:8000/admin/`
 
 Username is `volunteer@ubyssey.ca`, password is `volunteer`
 
-## Extra docker info
+# Extra docker info
 
 To see currently running docker containers, run the following command in a separate terminal.
 
