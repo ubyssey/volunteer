@@ -9,6 +9,7 @@ Before you can start writing code, set up your local development environment. Do
 Instructions for post-installation
 
 <!-- * [**Running the server**](/installation/running-the-server.md) -->
-* [**Dispatch Setup**](/installation/dispatch-setup.md)
+* [**Development**](/installation/development.md) and setting up Wagtail
+<!-- * [**Dispatch Setup**](/installation/dispatch-setup.md) -->
 
 
