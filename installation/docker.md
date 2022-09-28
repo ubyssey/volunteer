@@ -78,7 +78,7 @@
 
     _If you run into **operation errors**, drop the schemas in the MyQSL database (following similar instructions to Step 7, but instead of creating the database, drop the database) and repopulate it using the current Step 8._
 
-You have now finished setting up Docker and should now be able to develop inside the Docker container. However, we are not quite done with setup. Head over to [Development](/installation/development.md) for the next steps.
+You have now finished setting up Docker and should now be able to develop inside the Docker container. However, we are not quite done with setup. Head over to [Wagtail setup and development](/installation/wagtail-setup.md) for the next steps.
 
 &nbsp;
 

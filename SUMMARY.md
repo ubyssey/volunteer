@@ -4,7 +4,7 @@
 * [Our Technology](technology.md)
 * [Installation](installation/README.md)
   * [Docker Instructions](installation/docker.md)
-  * [Dispatch Setup](installation/dispatch-setup.md)
+  * [Wagtail Setup and Development](installation/wagtail-setup.md)
   <!-- * [Running the server](installation/running-the-server.md) -->
 * [Getting Started](getting-started/README.md)
   * [Your first task](getting-started/your-first-task.md)
