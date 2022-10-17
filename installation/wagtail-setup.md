@@ -54,7 +54,7 @@ In the Docker container (i.e. in the VSCode workspace Terminal):
 1) Install the required Node packages with npm:
 
     ```bash
-      cd /workspaces/ubyssey.ca/ubyssey/static/
+    cd /workspaces/ubyssey.ca/ubyssey/static_src/
     npm install
     ```
 
