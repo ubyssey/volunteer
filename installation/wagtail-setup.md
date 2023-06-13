@@ -65,7 +65,7 @@ In the Docker container (i.e. in the VSCode workspace Terminal):
     gulp buildDev
     ```
 
-_If you run into any error while installing npm or gulp, remove `ubyssey.ca/ubyssey/static/node_modules` by running `rm -rf node_modules`.
+_If you run into any error while installing npm or gulp, remove `ubyssey.ca/ubyssey/static_src/node_modules` by running `rm -rf node_modules`.
 
 &nbsp;
 
