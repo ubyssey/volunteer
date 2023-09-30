@@ -62,21 +62,13 @@
     quit;
     ```
 
-8. Populate the database.
-
-    <span style="font-size:0.9em;">*(IMPORTANT: `apt update` may be unaccessible to our project at the moment. You are most likely able to skip the first two lines of the below codeblock and head straight to the third/last `curl` command)*</span>
+8. Create login.
 
     ```bash
-    apt update
-    apt-get install curl
-    # password is ubyssey.
-    # You may not be prompted for the password, and the curl operation may appear to have hanged. Simply type the password and press enter.
-    curl https://storage.googleapis.com/ubyssey/dropbox/ubyssey.sql | mysql -u root ubyssey -p
+    python manage.py createsuperuser
     ```
 
-    Your db container is up and running! Type `exit` to exit from this container.
-
-    _If you run into **operation errors**, drop the schemas in the MyQSL database (following similar instructions to Step 7, but instead of creating the database, drop the database) and repopulate it using the current Step 8._
+    This will prompt you to add an email adress and password. You will then be able use these credentials to login to the wagtail admin
 
 You have now finished setting up Docker and should now be able to develop inside the Docker container. However, we are not quite done with setup. Head over to [Wagtail setup and development](/installation/wagtail-setup.md) for the next steps.
 
