@@ -62,14 +62,6 @@
     quit;
     ```
 
-8. Create login.
-
-    ```bash
-    python manage.py createsuperuser
-    ```
-
-    This will prompt you to add an email adress and password. You will then be able use these credentials to login to the wagtail admin
-
 You have now finished setting up Docker and should now be able to develop inside the Docker container. However, we are not quite done with setup. Head over to [Wagtail setup and development](/installation/wagtail-setup.md) for the next steps.
 
 &nbsp;
@@ -122,6 +114,14 @@ For performance boost, there's a a popular tool called [docker-sync](http://dock
     cd ubyssey.ca
     python manage.py migrate
     ```
+    
+3. Add login to database.
+
+    ```bash
+    python manage.py createsuperuser
+    ```
+
+    This will prompt you to add an email adress and password. You will then be able use these credentials to login to the wagtail admin
 
 Once the database has been populated, and migrations have been applied, you should be able to proceed to `localhost:8000` and `localhost:8000/admin` to view your local ubyssey.ca and Wagtail running from your ubyssey-dev Docker container.
 
