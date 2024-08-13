@@ -15,5 +15,5 @@ Instructions for post-installation
 
 After setting up your development environment if you want to add test cases and run them across multiple browsers you can refer to the tutorial below.
 
-* [**Testing setup and instructions**](testing.md)
+* [**Creating Test Cases with Selenium**](testing.md)
 
