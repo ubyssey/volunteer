@@ -45,6 +45,7 @@ To ensure that the parameterized tests are working as expected, follow these ste
 2. **Run the Tests**:
    - Set the browser environment variable to Chrome and run the tests:
      ```bash
+     # Go to the ubyssey.ca dir
      export BROWSER=chrome && python manage.py test
      ```
 
@@ -56,6 +57,7 @@ To ensure that the parameterized tests are working as expected, follow these ste
 2. **Run the Tests**:
    - Set the browser environment variable to Firefox and run the tests:
      ```bash
+     # Go to the ubyssey.ca dir
      export BROWSER=firefox && python manage.py test
      ```
 
@@ -67,6 +69,7 @@ To ensure that the parameterized tests are working as expected, follow these ste
 2. **Run the Tests**:
    - Set the browser environment variable to Edge and run the tests:
      ```bash
+     # Go to the ubyssey.ca dir
      export BROWSER=edge && python manage.py test
      ```
 
