@@ -15,5 +15,5 @@ Instructions for post-installation
 
 After setting up your development environment if you want to add test cases and run them across multiple browsers you can refer to the tutorial below.
 
-* [**Testing setup and instructions**]([/installation/testing-setup.md](https://github.com/ubyssey/volunteer/blob/master/installation/testing.md))
+* [**Testing setup and instructions**](testing.md)
 
