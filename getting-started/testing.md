@@ -18,8 +18,8 @@ python manage.py dumpdata > test_database_name.json
 
 Add the database to the fixtures folder in tests_ubyssey directory. Then you can start the static live server that Django provides which runs in the 
 background and feed it the database you created as a fixture. Then you can do the test setup similar to what is done in tests.py file in tests_ubyssey 
-directory. For more details kindly refer to the Django testing documentation [Django Testing Tools](https://docs.djangoproject.com/en/5.0/topics/testing/tools/)  and selenium 
-documentation [Selenium Python API Docs](https://www.selenium.dev/selenium/docs/api/py/api.html) for detailed instructions on creating test cases.
+directory. For more details kindly refer to the [Django testing documentation](https://docs.djangoproject.com/en/5.0/topics/testing/tools/)  and [selenium 
+documentation](https://www.selenium.dev/selenium/docs/api/py/api.html) for detailed instructions on creating test cases.
 
 
 # Testing Setup
