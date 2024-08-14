@@ -5,6 +5,7 @@
 * [Installation](installation/README.md)
   * [Docker Instructions](installation/docker.md)
   * [Wagtail Setup and Development](installation/wagtail-setup.md)
+  * [Creating test cases and testing the website](/installation/testing.md)
   <!-- * [Running the server](installation/running-the-server.md) -->
 * [Getting Started](getting-started/README.md)
   * [Your first task](getting-started/your-first-task.md)
