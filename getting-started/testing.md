@@ -1,4 +1,4 @@
-# Creating Test Cases with Selenium
+# Creating and running test cases
 
 This guide will help you create and run test cases using Selenium in conjunction with Django's testing tools. Follow these steps to set up your test environment and generate the necessary data.
 
