@@ -6,11 +6,12 @@ Generally test cases should be written for the following to reasons mainly:
 1. To test a part of the website that has broken frequently. This is called regression testing.
 2. To test most critical aspects of website which if broken could be costly for the buisness of the website.
 
-## 1. Add Relevant Data in the Admin
+## Create test cases
+### 1. Add Relevant Data in the Admin
 
 Before writing your test cases, ensure that all the relevant data is added to the Django admin. This will be the data your test cases will interact with.
 
-## 2. Export the Database
+### 2. Export the Database
 
 Once you have added the necessary data in the admin, export the database to a JSON file.
 
@@ -18,7 +19,7 @@ Once you have added the necessary data in the admin, export the database to a JS
 python manage.py dumpdata > test_database_name.json
 ```
 
-## 3. Write Your Test Cases
+### 3. Write Your Test Cases
 
 Add the database to the `fixtures` folder in `tests_ubyssey` directory. Then you can start the static live server that Django provides which runs in the 
 background and feed it the database you created as a fixture. Then you can do the test setup similar to what is done in `tests.py` file in `tests_ubyssey` 
