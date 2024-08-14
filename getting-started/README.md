@@ -8,3 +8,4 @@ This tutorial will walk you through the process of setting up your development e
 2. [Backend Development](/getting-started/backend.md)
 4. Frontend \(coming soon\)
 5. Submitting for approval \(coming soon\)
+6. [Creating and running test cases](/getting-started/testing.md)
