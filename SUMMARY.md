@@ -10,7 +10,7 @@
   * [Your first task](getting-started/your-first-task.md)
   * [How to use Git](getting-started/how-to-use-git.md)
   * [Intro to Backend Dev](getting-started/backend.md)
-  * [Creating Test Cases with Selenium](/installation/testing.md)
+  * [Creating Test Cases with Selenium](/getting-started/testing.md)
 * [Resources](resources.md)
 * [FAQ](faq/README.md)
 * [Office Hour](office-hour.md)
