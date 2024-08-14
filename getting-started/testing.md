@@ -1,6 +1,11 @@
 This guide will help you create and run test cases using Selenium in conjunction with Django's testing tools. Follow these steps to set up your test 
 environment and generate the necessary data.
 
+## How to write good test cases?
+Generally test cases should be written for the following to reasons mainly:
+1. To test a part of the website that has broken frequently. This is called regression testing.
+2. To test most critical aspects of website which if broken could be costly for the buisness of the website.
+
 ## 1. Add Relevant Data in the Admin
 
 Before writing your test cases, ensure that all the relevant data is added to the Django admin. This will be the data your test cases will interact with.
