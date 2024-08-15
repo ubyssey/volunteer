@@ -39,6 +39,9 @@ To ensure that the parameterized tests are working as expected, follow these ste
   # Go to ubyssey.ca directory
   pip install -r requirements.txt
   ```
+
+3. **Collect static files**
+   - If you don't have a directory `ubyssey.ca/static`, then navigate to `ubyssey.ca/config/settings/base.py` and uncomment out the line `'whitenoise.runserver_nostatic'` in `INSTALLED_APPS`. Then run the command `python manage.py collectstatic` in the `ubyssey.ca` directory in terminal. This will create the directory `ubyssey.ca/static` and populate it with the project's static files. These static files have to exist in order to run the tests because the test server is run with `DEBUG=False` which changes where the static files are expected to be. 
    
 
 
