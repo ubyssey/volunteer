@@ -55,14 +55,14 @@ In the Docker container (i.e. in the VSCode workspace Terminal):
 
     ```bash
     cd /workspaces/ubyssey.ca/ubyssey/static_src/
-    npm install
+    npm install -g gulp
     ```
 
-2) Install a global version of gulp \(if you don't have it already\) and build the static files:
+2) To automatically build the static files whenever you make changes in your static files run this following command in the background:
 
     ```bash
-    npm install -g gulp
-    gulp buildDev
+    cd /workspaces/ubyssey.ca/ubyssey/static_src/
+    gulp
     ```
 
 _If you run into any error while installing npm or gulp, remove `ubyssey.ca/ubyssey/static_src/node_modules` by running `rm -rf node_modules`.
