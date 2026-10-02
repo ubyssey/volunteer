@@ -29,38 +29,51 @@
     cd ubyssey.ca
     docker build . -t ubyssey/ubyssey.ca:latest
     ```
-    <span style="font-size:0.9em;">*(Or replace ubyssey/ubyssey.ca:latest with name of your choice)*</span>
+    <span style="font-size:0.9em;">*(Or replace `ubyssey/ubyssey.ca:latest` with a name of your choice. But you probably want to stick with what we have here.)*</span>
 
-3. Again, in your preferred directory, clone either the below repo, or else clone a fork you made of it:
+3. Go back to your preferred directory and clone the below repo:
     ``` bash
+    cd ..
     git clone https://github.com/ubyssey/ubyssey-dev.git
     ```
-    <span style="font-size:0.9em;">*(If you changed the docker image's name, make sure to also change it in docker-compose.yml in /ubyssey-dev/.devcontainer/)*</span>
+    <span style="font-size:0.9em;">*(If you changed the docker image's name, make sure to also change it in `docker-compose.yml` in `/ubyssey-dev/.devcontainer/`.)*</span>
 
-4. Set up a persistent Docker volume. (This is used to persist the database contents between Docker containers, should you ever need to delete yours)
+4. Set up a persistent Docker volume (this is used to persist the database contents between Docker containers, should you ever need to delete yours):
     ```bash
     docker volume create --name=ubyssey_db_volume
     ```
 
-5. Use the [Remote Development plugin](https://code.visualstudio.com/docs/remote/remote-overview) to open the ubyssey-dev.git directory as a container
+5. Use the [Remote Development plugin](https://code.visualstudio.com/docs/remote/remote-overview) to open the `ubyssey-dev` directory as a container by opening the directory in VS Code under File > Open Folder, opening the command palette with `ctrl+shift+p` (or `cmd+shift+p` on a Mac), running "Dev Containers: Reopen in Container," and selecting the directory if necessary.
 
-6. If the database container on Docker isn't set up yet, connect it:
-
-   This container may be named something other than ubyssey_db. If so, type `docker ps` to find what it is named. You can also connect to it without typing terminal commands if you download Docker Desktop.
+6. You will have three _Ubyssey_ Docker containers: `db`, `django`, and `redis`. At this point, you will have a VS Code window open in the `django` container. We need a terminal open in the `db` container, so run this in a command line running locally on your machine (_not_ in a container):
 
     ```bash
-    docker exec -t -i ubyssey_db bash
+    docker exec -t -i ubyssey-dev_devcontainer-db-1 bash
     ```
 
+   This container may be named something different. You can list all the containers on your computer by running `docker ps -a`.
 
-7. Once connected, setup the local database in the container.
+
+7. Once connected, make sure the local database is setup. In the container's terminal, run:
 
     ```bash
-    # password is ubyssey
     mysql -u root -p
+    SHOW DATABASES;
+    ```
+
+    There should be a `ubyssey` database listed. If not, run the following commands. When it asks for a password, type `ubyssey` and hit enter. It won't show as you type.
+
+    ```bash
     create database ubyssey;
+    # type the password
     quit;
     ```
+
+8. Because of a quirk with how this is setup up, you have to reset your Git repo. In the container terminal, run:
+
+```bash
+git reset --hard origin/develop
+```
 
 You have now finished setting up Docker and should now be able to develop inside the Docker container. However, we are not quite done with setup. Head over to [Wagtail setup and development](/installation/wagtail-setup.md) for the next steps.
 
@@ -95,35 +108,6 @@ Docker has a [a known CPU overusage issue](https://github.com/docker/for-mac/iss
 Jason, one of our volunteers, found [a trick](https://github.com/docker/for-mac/issues/1759) to fix the issue!
 
 For performance boost, there's a a popular tool called [docker-sync](http://docker-sync.io/). -->
-
-&nbsp;
-
-## Performing Django migrations on the Docker container
-
-1. If you are already in your VSCode workspace connected to your Docker container, skip this step.
-
-    Connect to the `ubyssey-dev` Docker container
-
-    ```bash
-    docker exec -t -i ubyssey-dev bash
-    ```
-
-2. Run migrations on the MySQL database. First make sure you are in the `ubyssey.ca` folder (where the `manage.py` file is).
-
-    ```bash
-    cd ubyssey.ca
-    python manage.py migrate
-    ```
-    
-3. Add login to database.
-
-    ```bash
-    python manage.py createsuperuser
-    ```
-
-    This will prompt you to add an email adress and password. You will then be able use these credentials to login to the wagtail admin
-
-Once the database has been populated, and migrations have been applied, you should be able to proceed to `localhost:8000` and `localhost:8000/admin` to view your local ubyssey.ca and Wagtail running from your ubyssey-dev Docker container.
 
 &nbsp;
 
