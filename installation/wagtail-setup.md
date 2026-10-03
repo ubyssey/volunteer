@@ -23,6 +23,7 @@ npm install -g gulp
 npm install
 gulp
 cd /app
+python manage.py makemigrations
 python manage.py migrate
 python manage.py createsuperuser
 # Enter whatever email and password you want; this is only for the server running locally on your computer.
@@ -86,6 +87,8 @@ This will leave `gulp` running in the background. Once you see `Starting 'watchT
 Now create another terminal with the + button in the top right of the VS Code terminal pane. You should see the same terminal prompt as before. Run:
 
 ```bash
+python manage.py makemigrations
+python manage.py migrate
 python manage.py runserver
 ```
 
